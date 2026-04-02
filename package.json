@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.36.3",
+    "openai": "^4.77.0",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
     "commander": "^12.1.0",

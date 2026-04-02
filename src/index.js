@@ -24,14 +24,16 @@ async function buildQuestions(opts, count) {
     return JSON.parse(fs.readFileSync(opts.loadQuestions, 'utf8'));
   }
 
+  const modelStr = opts.model || process.env.DEFAULT_MODEL || 'claude';
+
   let questions;
   if (opts.prompt) {
     console.log(`Prompt: "${opts.prompt}"`);
-    questions = await generateFromPrompt(opts.prompt, count);
+    questions = await generateFromPrompt(opts.prompt, count, modelStr);
   } else {
     const content = await extractContent(opts.source);
     console.log(`Extracted ${content.length} characters from source.`);
-    questions = await generateQuestions(content, count, opts.title);
+    questions = await generateQuestions(content, count, opts.title, modelStr);
   }
 
   const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 16);
@@ -58,6 +60,7 @@ program
   .option('-p, --prompt <text>', 'Free-text prompt (no source needed)')
   .requiredOption('-t, --title <title>', 'Test title (used in filename)')
   .option('-c, --count <number>', 'Number of questions', String(process.env.DEFAULT_QUESTION_COUNT || '22'))
+  .option('-m, --model <model>', 'Model to use, e.g. claude, groq, ollama:llama3.2 (default: claude)')
   .option('--save-questions <file>', 'Override output file path')
   .action(async (opts) => {
     validateOpts(opts);
@@ -83,6 +86,7 @@ program
   .option('-p, --prompt <text>', 'Free-text prompt (no source needed)')
   .requiredOption('-t, --title <title>', 'Test title')
   .option('-c, --count <number>', 'Number of questions', String(process.env.DEFAULT_QUESTION_COUNT || '22'))
+  .option('-m, --model <model>', 'Model to use, e.g. claude, groq, ollama:llama3.2 (default: claude)')
   .option('--headless', 'Run browser in headless mode', false)
   .option('--save-questions <file>', 'Override output file path')
   .option('--load-questions <file>', 'Load questions from JSON (skip generation)')
