@@ -1,0 +1,482 @@
+[
+  {
+    "type": "single",
+    "question": "Що повертає метод sort() після виконання сортування?",
+    "answers": [
+      {
+        "text": "None",
+        "correct": true
+      },
+      {
+        "text": "Новий відсортований список",
+        "correct": false
+      },
+      {
+        "text": "Кількість елементів списку",
+        "correct": false
+      },
+      {
+        "text": "Копію оригінального списку",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке значення за замовчуванням має параметр reverse у методі sort()?",
+    "answers": [
+      {
+        "text": "False",
+        "correct": true
+      },
+      {
+        "text": "True",
+        "correct": false
+      },
+      {
+        "text": "None",
+        "correct": false
+      },
+      {
+        "text": "0",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який результат виведе print(numbers) після виконання коду: numbers = [5, 10, 1]; numbers.sort()?",
+    "answers": [
+      {
+        "text": "[1, 5, 10]",
+        "correct": true
+      },
+      {
+        "text": "[5, 10, 1]",
+        "correct": false
+      },
+      {
+        "text": "[10, 5, 1]",
+        "correct": false
+      },
+      {
+        "text": "None",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який результат виведе print(letters) після виконання коду: letters = ['c', 'a', 'b']; letters.sort(reverse=True)?",
+    "answers": [
+      {
+        "text": "['c', 'b', 'a']",
+        "correct": true
+      },
+      {
+        "text": "['a', 'b', 'c']",
+        "correct": false
+      },
+      {
+        "text": "['b', 'a', 'c']",
+        "correct": false
+      },
+      {
+        "text": "['c', 'a', 'b']",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який результат виведе print(programming_languages) після виконання: programming_languages = ['Python', 'Java', 'C++']; programming_languages.sort(key=len)?",
+    "answers": [
+      {
+        "text": "['C++', 'Java', 'Python']",
+        "correct": true
+      },
+      {
+        "text": "['Python', 'Java', 'C++']",
+        "correct": false
+      },
+      {
+        "text": "['Java', 'C++', 'Python']",
+        "correct": false
+      },
+      {
+        "text": "['C++', 'Python', 'Java']",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке призначення параметра key у методі sort()?",
+    "answers": [
+      {
+        "text": "Визначити функцію, яка обчислює критерій порівняння для кожного елемента",
+        "correct": true
+      },
+      {
+        "text": "Вказати індекс елемента, з якого починається сортування",
+        "correct": false
+      },
+      {
+        "text": "Задати назву ключа для сортування за зростанням",
+        "correct": false
+      },
+      {
+        "text": "Вказати максимальну кількість елементів для сортування",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка основна відмінність функції sorted() від методу sort()?",
+    "answers": [
+      {
+        "text": "sorted() повертає новий відсортований список, не змінюючи оригінал",
+        "correct": true
+      },
+      {
+        "text": "sorted() змінює оригінальний список і повертає None",
+        "correct": false
+      },
+      {
+        "text": "sorted() працює лише з числовими списками",
+        "correct": false
+      },
+      {
+        "text": "sorted() не підтримує параметри key та reverse",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що станеться з оригінальним списком після виклику функції sorted()?",
+    "answers": [
+      {
+        "text": "Оригінальний список залишиться незмінним",
+        "correct": true
+      },
+      {
+        "text": "Оригінальний список буде відсортовано за зростанням",
+        "correct": false
+      },
+      {
+        "text": "Оригінальний список буде видалено",
+        "correct": false
+      },
+      {
+        "text": "Оригінальний список буде очищено",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка функція була використана як значення параметра key для сортування списку рядків за їх довжиною?",
+    "answers": [
+      {
+        "text": "len",
+        "correct": true
+      },
+      {
+        "text": "str",
+        "correct": false
+      },
+      {
+        "text": "size",
+        "correct": false
+      },
+      {
+        "text": "count",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яким чином lambda-функція використовується для сортування списку словників за ключем 'year_of_birth'?",
+    "answers": [
+      {
+        "text": "persons.sort(key=lambda element: element['year_of_birth'])",
+        "correct": true
+      },
+      {
+        "text": "persons.sort(key='year_of_birth')",
+        "correct": false
+      },
+      {
+        "text": "persons.sort(lambda element: element['year_of_birth'])",
+        "correct": false
+      },
+      {
+        "text": "persons.sort(key=lambda: element['year_of_birth'])",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Після сортування списку persons за роком народження методом sort(key=get_year), яким буде перший елемент результату?",
+    "answers": [
+      {
+        "text": "{'name': 'Bob', 'year_of_birth': 1985}",
+        "correct": true
+      },
+      {
+        "text": "{'name': 'Alice', 'year_of_birth': 1990}",
+        "correct": false
+      },
+      {
+        "text": "{'name': 'Charlie', 'year_of_birth': 2000}",
+        "correct": false
+      },
+      {
+        "text": "{'name': 'Alice', 'year_of_birth': 2000}",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які параметри підтримує метод sort()?",
+    "answers": [
+      {
+        "text": "key",
+        "correct": true
+      },
+      {
+        "text": "reverse",
+        "correct": true
+      },
+      {
+        "text": "start",
+        "correct": false
+      },
+      {
+        "text": "end",
+        "correct": false
+      },
+      {
+        "text": "step",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які твердження про метод sort() є правильними?",
+    "answers": [
+      {
+        "text": "Метод sort() змінює оригінальний список",
+        "correct": true
+      },
+      {
+        "text": "Метод sort() повертає None",
+        "correct": true
+      },
+      {
+        "text": "Метод sort() повертає новий список",
+        "correct": false
+      },
+      {
+        "text": "Метод sort() за замовчуванням сортує за спаданням",
+        "correct": false
+      },
+      {
+        "text": "Метод sort() не підтримує параметр key",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які твердження про функцію sorted() є правильними?",
+    "answers": [
+      {
+        "text": "sorted() завжди повертає список",
+        "correct": true
+      },
+      {
+        "text": "sorted() підтримує параметри key та reverse",
+        "correct": true
+      },
+      {
+        "text": "sorted() приймає ітерований об'єкт як обов'язковий аргумент",
+        "correct": true
+      },
+      {
+        "text": "sorted() змінює оригінальний список",
+        "correct": false
+      },
+      {
+        "text": "sorted() повертає None",
+        "correct": false
+      },
+      {
+        "text": "sorted() працює лише зі списками цілих чисел",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Що є спільним між методом sort() та функцією sorted()?",
+    "answers": [
+      {
+        "text": "Обидва підтримують параметр reverse",
+        "correct": true
+      },
+      {
+        "text": "Обидва підтримують параметр key",
+        "correct": true
+      },
+      {
+        "text": "Обидва повертають None",
+        "correct": false
+      },
+      {
+        "text": "Обидва змінюють оригінальний список",
+        "correct": false
+      },
+      {
+        "text": "Обидва повертають новий список",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Яке значення за замовчуванням мають необов'язкові параметри методу sort()?",
+    "answers": [
+      {
+        "text": "key=None",
+        "correct": true
+      },
+      {
+        "text": "reverse=False",
+        "correct": true
+      },
+      {
+        "text": "key=False",
+        "correct": false
+      },
+      {
+        "text": "reverse=None",
+        "correct": false
+      },
+      {
+        "text": "key=True",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які способи сортування списку словників за певним полем описані в тексті?",
+    "answers": [
+      {
+        "text": "Визначення окремої функції та передача її як значення параметра key",
+        "correct": true
+      },
+      {
+        "text": "Використання lambda-функції як значення параметра key",
+        "correct": true
+      },
+      {
+        "text": "Використання вбудованого методу словника sort_by()",
+        "correct": false
+      },
+      {
+        "text": "Передача назви ключа словника як рядка в параметр key",
+        "correct": false
+      },
+      {
+        "text": "Використання функції sorted() без параметрів",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених тверджень про параметр key методу sort() є правильними?",
+    "answers": [
+      {
+        "text": "Функція, задана в key, застосовується до кожного елемента списку перед сортуванням",
+        "correct": true
+      },
+      {
+        "text": "Ключ обчислюється один раз для кожного елемента і використовується протягом усього сортування",
+        "correct": true
+      },
+      {
+        "text": "Значення за замовчуванням параметра key дорівнює None",
+        "correct": true
+      },
+      {
+        "text": "Параметр key є обов'язковим",
+        "correct": false
+      },
+      {
+        "text": "Параметр key приймає лише вбудовані функції Python",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається метод Python, який сортує список «на місці», змінюючи сам список?",
+    "answers": [
+      {
+        "text": "sort",
+        "correct": true
+      },
+      {
+        "text": "sort()",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яке значення повертає метод sort() після виконання?",
+    "answers": [
+      {
+        "text": "None",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яку вбудовану функцію Python використали як значення параметра key для сортування списку рядків за їх довжиною?",
+    "answers": [
+      {
+        "text": "len",
+        "correct": true
+      },
+      {
+        "text": "len()",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається вбудована функція Python, яка повертає новий відсортований список з ітерованого об'єкта, не змінюючи оригінал?",
+    "answers": [
+      {
+        "text": "sorted",
+        "correct": true
+      },
+      {
+        "text": "sorted()",
+        "correct": true
+      }
+    ]
+  }
+]

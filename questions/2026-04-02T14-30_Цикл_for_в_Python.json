@@ -1,0 +1,470 @@
+[
+  {
+    "type": "single",
+    "question": "Скільки типів циклів існує в Python?",
+    "answers": [
+      {
+        "text": "2",
+        "correct": true
+      },
+      {
+        "text": "3",
+        "correct": false
+      },
+      {
+        "text": "4",
+        "correct": false
+      },
+      {
+        "text": "1",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Для чого використовується цикл for у Python?",
+    "answers": [
+      {
+        "text": "Для виконання блоку коду певну кількість разів",
+        "correct": true
+      },
+      {
+        "text": "Для виконання блоку коду лише один раз",
+        "correct": false
+      },
+      {
+        "text": "Для визначення функцій",
+        "correct": false
+      },
+      {
+        "text": "Для обробки виключень",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке ключове слово використовується для оголошення циклу for у Python?",
+    "answers": [
+      {
+        "text": "for",
+        "correct": true
+      },
+      {
+        "text": "loop",
+        "correct": false
+      },
+      {
+        "text": "repeat",
+        "correct": false
+      },
+      {
+        "text": "iterate",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке значення містить діапазон range(4)?",
+    "answers": [
+      {
+        "text": "0, 1, 2, 3",
+        "correct": true
+      },
+      {
+        "text": "1, 2, 3, 4",
+        "correct": false
+      },
+      {
+        "text": "0, 1, 2, 3, 4",
+        "correct": false
+      },
+      {
+        "text": "1, 2, 3",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "З якого значення починається діапазон, що повертає функція range(4)?",
+    "answers": [
+      {
+        "text": "0",
+        "correct": true
+      },
+      {
+        "text": "1",
+        "correct": false
+      },
+      {
+        "text": "4",
+        "correct": false
+      },
+      {
+        "text": "-1",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що виведе останньою ітерацією цикл: for i in range(4): print(i)?",
+    "answers": [
+      {
+        "text": "3",
+        "correct": true
+      },
+      {
+        "text": "4",
+        "correct": false
+      },
+      {
+        "text": "0",
+        "correct": false
+      },
+      {
+        "text": "2",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Коли виконується блок else у циклі for?",
+    "answers": [
+      {
+        "text": "Після завершення циклу",
+        "correct": true
+      },
+      {
+        "text": "Перед початком циклу",
+        "correct": false
+      },
+      {
+        "text": "На кожній ітерації циклу",
+        "correct": false
+      },
+      {
+        "text": "Тільки якщо цикл не виконався жодного разу",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який оператор зупиняє виконання циклу for і при цьому блок else виконуватись не буде?",
+    "answers": [
+      {
+        "text": "break",
+        "correct": true
+      },
+      {
+        "text": "continue",
+        "correct": false
+      },
+      {
+        "text": "stop",
+        "correct": false
+      },
+      {
+        "text": "exit",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка вбудована функція Python використовується для визначення діапазону значень?",
+    "answers": [
+      {
+        "text": "range()",
+        "correct": true
+      },
+      {
+        "text": "span()",
+        "correct": false
+      },
+      {
+        "text": "interval()",
+        "correct": false
+      },
+      {
+        "text": "sequence()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Скільки елементів міститься у списку languages = ['Swift', 'Python', 'Go', 'JavaScript']?",
+    "answers": [
+      {
+        "text": "4",
+        "correct": true
+      },
+      {
+        "text": "3",
+        "correct": false
+      },
+      {
+        "text": "5",
+        "correct": false
+      },
+      {
+        "text": "2",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яким буде перший елемент, що виведеться при ітерації списку languages = ['Swift', 'Python', 'Go', 'JavaScript']?",
+    "answers": [
+      {
+        "text": "Swift",
+        "correct": true
+      },
+      {
+        "text": "Python",
+        "correct": false
+      },
+      {
+        "text": "Go",
+        "correct": false
+      },
+      {
+        "text": "JavaScript",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи послідовностей можна використовувати з циклом for у Python?",
+    "answers": [
+      {
+        "text": "Списки",
+        "correct": true
+      },
+      {
+        "text": "Рядки",
+        "correct": true
+      },
+      {
+        "text": "Кортежі",
+        "correct": true
+      },
+      {
+        "text": "Числа з плаваючою крапкою",
+        "correct": false
+      },
+      {
+        "text": "Булеві значення",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи циклів існують у Python?",
+    "answers": [
+      {
+        "text": "for",
+        "correct": true
+      },
+      {
+        "text": "while",
+        "correct": true
+      },
+      {
+        "text": "do-while",
+        "correct": false
+      },
+      {
+        "text": "loop",
+        "correct": false
+      },
+      {
+        "text": "repeat",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Що є правдою щодо блоку else у циклі for?",
+    "answers": [
+      {
+        "text": "Блок else є необов'язковим",
+        "correct": true
+      },
+      {
+        "text": "Блок else виконується після завершення циклу",
+        "correct": true
+      },
+      {
+        "text": "Блок else не виконується, якщо цикл зупинено оператором break",
+        "correct": true
+      },
+      {
+        "text": "Блок else виконується на кожній ітерації",
+        "correct": false
+      },
+      {
+        "text": "Блок else є обов'язковим для циклу for",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які твердження про функцію range() є правильними?",
+    "answers": [
+      {
+        "text": "range() є вбудованою функцією Python",
+        "correct": true
+      },
+      {
+        "text": "range(4) повертає значення 0, 1, 2, 3",
+        "correct": true
+      },
+      {
+        "text": "range() використовується для визначення діапазону значень",
+        "correct": true
+      },
+      {
+        "text": "range(4) повертає значення 1, 2, 3, 4",
+        "correct": false
+      },
+      {
+        "text": "range() повертає лише парні числа",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Що відбувається під час кожної ітерації циклу for при переборі списку?",
+    "answers": [
+      {
+        "text": "Змінна циклу отримує значення поточного елемента послідовності",
+        "correct": true
+      },
+      {
+        "text": "Виконується блок коду всередині циклу",
+        "correct": true
+      },
+      {
+        "text": "Список видаляється з пам'яті",
+        "correct": false
+      },
+      {
+        "text": "Цикл зупиняється після першого елемента",
+        "correct": false
+      },
+      {
+        "text": "Всі елементи виводяться одночасно",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Яке призначення циклів у програмуванні?",
+    "answers": [
+      {
+        "text": "Повторення виконання певного блоку коду",
+        "correct": true
+      },
+      {
+        "text": "Виведення повідомлень певну кількість разів",
+        "correct": true
+      },
+      {
+        "text": "Визначення типів змінних",
+        "correct": false
+      },
+      {
+        "text": "Імпортування бібліотек",
+        "correct": false
+      },
+      {
+        "text": "Створення нових функцій",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які елементи містить список digits = [0, 1, 4]?",
+    "answers": [
+      {
+        "text": "0",
+        "correct": true
+      },
+      {
+        "text": "1",
+        "correct": true
+      },
+      {
+        "text": "4",
+        "correct": true
+      },
+      {
+        "text": "2",
+        "correct": false
+      },
+      {
+        "text": "3",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається змінна у синтаксисі циклу for, яка отримує доступ до кожного елемента послідовності на кожній ітерації? (відповідь зі прикладу синтаксису)",
+    "answers": [
+      {
+        "text": "val",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Скільки значень містить діапазон range(4)? Введіть число.",
+    "answers": [
+      {
+        "text": "4",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який текст виведе блок else у прикладі: digits = [0, 1, 4]; for i in digits: print(i) else: print(\"No items left.\")?",
+    "answers": [
+      {
+        "text": "No items left.",
+        "correct": true
+      },
+      {
+        "text": "No items left",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яким є останній елемент списку languages = ['Swift', 'Python', 'Go', 'JavaScript']?",
+    "answers": [
+      {
+        "text": "JavaScript",
+        "correct": true
+      }
+    ]
+  }
+]

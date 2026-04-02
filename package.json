@@ -1,0 +1,21 @@
+{
+  "name": "vse-test",
+  "version": "1.0.0",
+  "description": "Auto-generate and fill tests on vseosvita.ua",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "login": "node src/index.js login",
+    "create": "node src/index.js create"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7",
+    "mammoth": "^1.8.0",
+    "pdf-parse": "^1.1.1",
+    "playwright": "^1.49.1"
+  }
+}
