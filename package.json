@@ -6,7 +6,8 @@
   "main": "src/index.js",
   "scripts": {
     "login": "node src/index.js login",
-    "create": "node src/index.js create"
+    "create": "node src/index.js create",
+    "start-ui": "node server.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.36.3",
@@ -17,6 +18,7 @@
     "dotenv": "^16.4.7",
     "mammoth": "^1.8.0",
     "pdf-parse": "^1.1.1",
-    "playwright": "^1.49.1"
+    "playwright": "^1.49.1",
+    "express": "^4.18.2"
   }
 }

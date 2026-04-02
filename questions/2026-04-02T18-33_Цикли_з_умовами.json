@@ -1,0 +1,478 @@
+[
+  {
+    "type": "single",
+    "question": "Який цикл з умовою перевіряє умову ПЕРЕД виконанням тіла циклу?",
+    "answers": [
+      {
+        "text": "while",
+        "correct": true
+      },
+      {
+        "text": "do...while",
+        "correct": false
+      },
+      {
+        "text": "for",
+        "correct": false
+      },
+      {
+        "text": "repeat...until",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Скільки разів виконається тіло циклу do...while, якщо умова хибна з самого початку?",
+    "answers": [
+      {
+        "text": "1",
+        "correct": true
+      },
+      {
+        "text": "0",
+        "correct": false
+      },
+      {
+        "text": "Нескінченну кількість разів",
+        "correct": false
+      },
+      {
+        "text": "2",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яким терміном називають цикл, що виконується нескінченно через помилку в умові?",
+    "answers": [
+      {
+        "text": "Нескінченний (безкінечний) цикл",
+        "correct": true
+      },
+      {
+        "text": "Порожній цикл",
+        "correct": false
+      },
+      {
+        "text": "Вкладений цикл",
+        "correct": false
+      },
+      {
+        "text": "Умовний цикл",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що станеться, якщо в циклі while умова ніколи не стане хибною?",
+    "answers": [
+      {
+        "text": "Цикл виконуватиметься нескінченно",
+        "correct": true
+      },
+      {
+        "text": "Цикл завершиться після 100 ітерацій",
+        "correct": false
+      },
+      {
+        "text": "Програма видасть помилку компіляції",
+        "correct": false
+      },
+      {
+        "text": "Цикл не виконається жодного разу",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яку конструкцію використовують для дострокового виходу з циклу в більшості мов програмування?",
+    "answers": [
+      {
+        "text": "break",
+        "correct": true
+      },
+      {
+        "text": "exit",
+        "correct": false
+      },
+      {
+        "text": "stop",
+        "correct": false
+      },
+      {
+        "text": "return",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яку конструкцію використовують для переходу до наступної ітерації циклу, пропускаючи решту коду в тілі?",
+    "answers": [
+      {
+        "text": "continue",
+        "correct": true
+      },
+      {
+        "text": "break",
+        "correct": false
+      },
+      {
+        "text": "skip",
+        "correct": false
+      },
+      {
+        "text": "pass",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Скільки разів виконається тіло циклу: x = 5; while (x > 10) { x++; }?",
+    "answers": [
+      {
+        "text": "0 разів",
+        "correct": true
+      },
+      {
+        "text": "1 раз",
+        "correct": false
+      },
+      {
+        "text": "5 разів",
+        "correct": false
+      },
+      {
+        "text": "10 разів",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як називається цикл, розміщений всередині іншого циклу?",
+    "answers": [
+      {
+        "text": "Вкладений цикл",
+        "correct": true
+      },
+      {
+        "text": "Рекурсивний цикл",
+        "correct": false
+      },
+      {
+        "text": "Подвійний цикл",
+        "correct": false
+      },
+      {
+        "text": "Залежний цикл",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке значення матиме змінна x після виконання: x = 1; while (x < 4) { x = x * 2; }?",
+    "answers": [
+      {
+        "text": "4",
+        "correct": true
+      },
+      {
+        "text": "2",
+        "correct": false
+      },
+      {
+        "text": "8",
+        "correct": false
+      },
+      {
+        "text": "3",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка різниця між циклом while і do...while?",
+    "answers": [
+      {
+        "text": "do...while гарантовано виконує тіло хоча б один раз",
+        "correct": true
+      },
+      {
+        "text": "while виконує тіло хоча б один раз, а do...while — ні",
+        "correct": false
+      },
+      {
+        "text": "do...while швидший за while",
+        "correct": false
+      },
+      {
+        "text": "Вони повністю ідентичні",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке значення матиме змінна s після виконання: s = 0; x = 1; while (x <= 3) { s = s + x; x++; }?",
+    "answers": [
+      {
+        "text": "6",
+        "correct": true
+      },
+      {
+        "text": "3",
+        "correct": false
+      },
+      {
+        "text": "9",
+        "correct": false
+      },
+      {
+        "text": "0",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених операторів є логічними операторами, що використовуються в умовах циклів?",
+    "answers": [
+      {
+        "text": "AND (&&)",
+        "correct": true
+      },
+      {
+        "text": "OR (||)",
+        "correct": true
+      },
+      {
+        "text": "NOT (!)",
+        "correct": true
+      },
+      {
+        "text": "MOD (%)",
+        "correct": false
+      },
+      {
+        "text": "DIV (/)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які твердження про цикл while є правильними?",
+    "answers": [
+      {
+        "text": "Умова перевіряється перед кожною ітерацією",
+        "correct": true
+      },
+      {
+        "text": "Якщо умова хибна з початку, тіло не виконається жодного разу",
+        "correct": true
+      },
+      {
+        "text": "Тіло циклу виконується хоча б один раз",
+        "correct": false
+      },
+      {
+        "text": "Умова перевіряється після кожної ітерації",
+        "correct": false
+      },
+      {
+        "text": "Цикл while не може бути нескінченним",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених прикладів можуть призвести до нескінченного циклу?",
+    "answers": [
+      {
+        "text": "while (true) { ... }",
+        "correct": true
+      },
+      {
+        "text": "x = 1; while (x > 0) { x++; }",
+        "correct": true
+      },
+      {
+        "text": "x = 10; while (x > 0) { x--; }",
+        "correct": false
+      },
+      {
+        "text": "x = 5; while (x < 10) { x = x + 2; }",
+        "correct": false
+      },
+      {
+        "text": "x = 0; while (x != 5) { x++; }",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з тверджень про оператор break є правильними?",
+    "answers": [
+      {
+        "text": "Припиняє виконання поточного циклу",
+        "correct": true
+      },
+      {
+        "text": "Передає керування на наступний рядок після циклу",
+        "correct": true
+      },
+      {
+        "text": "Переходить до наступної ітерації циклу",
+        "correct": false
+      },
+      {
+        "text": "Повністю завершує роботу програми",
+        "correct": false
+      },
+      {
+        "text": "Застосовується лише в циклі for",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених варіантів є коректним записом циклу з передумовою у псевдокоді або мовах програмування?",
+    "answers": [
+      {
+        "text": "while (умова) { тіло; }",
+        "correct": true
+      },
+      {
+        "text": "поки (умова) виконувати тіло кінець_поки",
+        "correct": true
+      },
+      {
+        "text": "do { тіло; } while (умова);",
+        "correct": false
+      },
+      {
+        "text": "for (i = 0; i < n; i++) { тіло; }",
+        "correct": false
+      },
+      {
+        "text": "repeat тіло until (умова);",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які змінні будуть рівні 0 після виконання такого коду: a=0; b=0; c=1; while(c < 3){a = a+1; c = c+1;} ?",
+    "answers": [
+      {
+        "text": "b",
+        "correct": true
+      },
+      {
+        "text": "a і b рівні 0 до початку циклу, але b не змінюється",
+        "correct": true
+      },
+      {
+        "text": "a",
+        "correct": false
+      },
+      {
+        "text": "c",
+        "correct": false
+      },
+      {
+        "text": "Усі змінні будуть 0",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених висловлювань про цикл do...while є правильними?",
+    "answers": [
+      {
+        "text": "Умова перевіряється після виконання тіла циклу",
+        "correct": true
+      },
+      {
+        "text": "Тіло циклу виконується хоча б один раз",
+        "correct": true
+      },
+      {
+        "text": "Умова перевіряється до виконання тіла циклу",
+        "correct": false
+      },
+      {
+        "text": "Тіло циклу може не виконатися жодного разу",
+        "correct": false
+      },
+      {
+        "text": "do...while є циклом з передумовою",
+        "correct": false
+      },
+      {
+        "text": "Цей цикл не підтримує оператор break",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається цикл, в якому умова перевіряється після виконання тіла? (Введіть назву типу циклу українською або англійською)",
+    "answers": [
+      {
+        "text": "цикл з післяумовою",
+        "correct": true
+      },
+      {
+        "text": "do while",
+        "correct": true
+      },
+      {
+        "text": "do...while",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яке значення матиме змінна x після виконання коду: x = 0; while (x < 5) { x = x + 2; }? Введіть число.",
+    "answers": [
+      {
+        "text": "6",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яким оператором у більшості мов програмування здійснюється достроковий вихід із циклу? (Введіть назву оператора англійською)",
+    "answers": [
+      {
+        "text": "break",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Скільки разів виконається тіло циклу: x = 1; do { x = x * 3; } while (x < 10);? Введіть число.",
+    "answers": [
+      {
+        "text": "2",
+        "correct": true
+      }
+    ]
+  }
+]

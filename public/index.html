@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>autoTestScreen — UI</title>
+    <style>
+      body {
+        font-family:
+          system-ui,
+          Segoe UI,
+          Roboto,
+          Arial;
+        max-width: 900px;
+        margin: 24px auto;
+        padding: 0 16px;
+      }
+      label {
+        display: block;
+        margin-top: 12px;
+        font-weight: 600;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 6px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      button {
+        margin-top: 12px;
+        padding: 10px 14px;
+        border: none;
+        background: #0b76ef;
+        color: #fff;
+        border-radius: 8px;
+      }
+      pre {
+        background: #111;
+        color: #0f0;
+        padding: 12px;
+        border-radius: 6px;
+        max-height: 320px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>autoTestScreen — простий інтерфейс</h2>
+
+    <label
+      >Команда
+      <select id="cmd">
+        <option value="generate">generate</option>
+        <option value="create">create</option>
+      </select>
+    </label>
+
+    <label
+      style="display: flex; gap: 12px; align-items: center; margin-top: 8px"
+    >
+      <input id="followUp" type="checkbox" />
+      <span>Після генерації автоматично заповнити тест (create)</span>
+    </label>
+
+    <label
+      style="display: flex; gap: 12px; align-items: center; margin-top: 6px"
+    >
+      <input id="autoConfirm" type="checkbox" checked />
+      <span>Автоматично натискати Enter для продовження (для create)</span>
+    </label>
+
+    <label
+      style="display: flex; gap: 12px; align-items: center; margin-top: 6px"
+    >
+      <input id="openUrl" type="checkbox" />
+      <span
+        >Відкривати сторінку редактора після успіху (якщо задано `url`)</span
+      >
+    </label>
+
+    <label
+      >Prompt / Тема
+      <textarea
+        id="prompt"
+        rows="3"
+        placeholder="Текст або тема для генерації"
+      ></textarea>
+    </label>
+
+    <label
+      >Source (URL / path to PDF/DOCX)
+      <input id="source" placeholder="https://example.com/article.pdf" />
+    </label>
+
+    <label
+      >Title
+      <input id="title" placeholder="Назва тесту (обов'язково)" />
+    </label>
+
+    <label
+      >Count
+      <input id="count" type="number" value="22" />
+    </label>
+
+    <label
+      >Model
+      <input
+        id="model"
+        placeholder="claude / groq / ollama:llama3.2"
+        value="claude"
+      />
+    </label>
+
+    <label style="font-weight: 600">Додатково</label>
+    <label style="font-weight: 400"
+      >Load questions JSON path (для create)
+      <input id="loadQuestions" placeholder="./questions/xxx.json" />
+    </label>
+    <label style="font-weight: 400"
+      >URL (для create - існуючий тест у редакторі)
+      <input
+        id="url"
+        placeholder="https://vseosvita.ua/test/designer?id=XXXXX"
+      />
+    </label>
+
+    <button id="run">Запустити</button>
+
+    <h3>Логи</h3>
+    <pre id="logs">Натисніть «Запустити» щоб побачити хід виконання...</pre>
+    <div id="result" style="margin-top: 12px"></div>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const logsEl = $("logs");
+      function appendLine(s) {
+        logsEl.textContent += "\n" + s;
+        logsEl.scrollTop = logsEl.scrollHeight;
+      }
+
+      $("run").addEventListener("click", async () => {
+        logsEl.textContent = "";
+        const body = {
+          // if user requested follow-up create after generate, send combined action
+          cmd:
+            $("cmd").value === "generate" && $("followUp").checked
+              ? "generate_and_create"
+              : $("cmd").value,
+          prompt: $("prompt").value,
+          source: $("source").value,
+          title: $("title").value,
+          count: $("count").value,
+          model: $("model").value,
+          loadQuestions: $("loadQuestions").value,
+          url: $("url").value,
+          autoConfirm: $("autoConfirm").checked,
+          openUrl: $("openUrl").checked,
+        };
+
+        const resp = await fetch("/api/run", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (!resp.ok) {
+          appendLine("Error starting job: " + (await resp.text()));
+          return;
+        }
+        const data = await resp.json();
+        appendLine("Started job id=" + data.id);
+
+        // display phase status
+        const genStatus =
+          document.getElementById("genStatus") ||
+          (() => {
+            const e = document.createElement("div");
+            e.id = "genStatus";
+            e.style.marginTop = "8px";
+            e.innerHTML = "<b>Generate:</b> idle";
+            document.body.insertBefore(e, document.getElementById("result"));
+            return e;
+          })();
+        const createStatus =
+          document.getElementById("createStatus") ||
+          (() => {
+            const e = document.createElement("div");
+            e.id = "createStatus";
+            e.style.marginTop = "6px";
+            e.innerHTML = "<b>Create:</b> idle";
+            document.body.insertBefore(e, document.getElementById("result"));
+            return e;
+          })();
+
+        const es = new EventSource("/api/stream/" + data.id);
+        es.onmessage = (e) => {
+          appendLine(e.data);
+          // phase markers
+          if (e.data && e.data.startsWith("PHASE:")) {
+            const txt = e.data.replace("PHASE:", "").trim();
+            if (txt.startsWith("generate"))
+              genStatus.innerHTML =
+                "<b>Generate:</b> " + txt.replace("generate:", "").trim();
+            if (txt.startsWith("create"))
+              createStatus.innerHTML =
+                "<b>Create:</b> " + txt.replace("create:", "").trim();
+          }
+          // saved file marker
+          if (e.data && e.data.startsWith("SAVED_FILE:")) {
+            const file = e.data.replace("SAVED_FILE:", "").trim();
+            const link = document.createElement("a");
+            link.href = "/" + file;
+            link.textContent =
+              "Завантажити згенерований JSON: " + file.split("/").pop();
+            link.download = file.split("/").pop();
+            const container = $("result");
+            container.innerHTML = "";
+            container.appendChild(link);
+          }
+          if (e.data && e.data.startsWith("OPEN_URL:")) {
+            const url = e.data.replace("OPEN_URL:", "").trim();
+            const container = $("result");
+            const btn = document.createElement("button");
+            btn.textContent = "Відкрити редактор";
+            btn.onclick = () => window.open(url, "_blank");
+            // prefer placing button after download link
+            const existing = container.querySelector("a");
+            if (existing) container.appendChild(document.createElement("br"));
+            container.appendChild(btn);
+            // if user enabled auto open, open via client
+            if ($("openUrl").checked) {
+              const delayMs = 1500;
+              appendLine(`Opening editor in ${delayMs}ms...`);
+              setTimeout(() => {
+                try {
+                  window.open(url, "_blank");
+                  appendLine("Opened editor URL (client): " + url);
+                } catch (e) {
+                  appendLine("Failed to open URL client-side");
+                }
+              }, delayMs);
+            }
+          }
+          if (e.data && e.data.startsWith("__PROCESS_END__")) {
+            appendLine("Процес завершено.");
+            es.close();
+          }
+        };
+        es.onerror = () => {
+          appendLine("Stream error or closed");
+          es.close();
+        };
+      });
+    </script>
+  </body>
+</html>

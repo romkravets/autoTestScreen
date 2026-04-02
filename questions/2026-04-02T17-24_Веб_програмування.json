@@ -1,0 +1,490 @@
+[
+  {
+    "type": "single",
+    "question": "Що таке DOM у веб-розробці?",
+    "answers": [
+      {
+        "text": "Об'єктна модель документа, яка представляє HTML як дерево об'єктів",
+        "correct": true
+      },
+      {
+        "text": "Мова програмування для створення веб-сторінок",
+        "correct": false
+      },
+      {
+        "text": "Протокол передачі даних між клієнтом і сервером",
+        "correct": false
+      },
+      {
+        "text": "Стандарт оформлення CSS-стилів",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод JavaScript повертає перший елемент, що відповідає CSS-селектору?",
+    "answers": [
+      {
+        "text": "document.querySelector()",
+        "correct": true
+      },
+      {
+        "text": "document.getElementById()",
+        "correct": false
+      },
+      {
+        "text": "document.getElement()",
+        "correct": false
+      },
+      {
+        "text": "document.findElement()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка властивість DOM-елемента дозволяє отримати або змінити його HTML-вміст?",
+    "answers": [
+      {
+        "text": "innerHTML",
+        "correct": true
+      },
+      {
+        "text": "textContent",
+        "correct": false
+      },
+      {
+        "text": "innerText",
+        "correct": false
+      },
+      {
+        "text": "htmlContent",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод використовується для додавання нового дочірнього вузла до елемента DOM?",
+    "answers": [
+      {
+        "text": "appendChild()",
+        "correct": true
+      },
+      {
+        "text": "addChild()",
+        "correct": false
+      },
+      {
+        "text": "insertNode()",
+        "correct": false
+      },
+      {
+        "text": "pushChild()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка подія JavaScript спрацьовує після повного завантаження DOM-дерева?",
+    "answers": [
+      {
+        "text": "DOMContentLoaded",
+        "correct": true
+      },
+      {
+        "text": "load",
+        "correct": false
+      },
+      {
+        "text": "ready",
+        "correct": false
+      },
+      {
+        "text": "domReady",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як у JavaScript додати обробник події кліку до елемента з id=\"btn\"?",
+    "answers": [
+      {
+        "text": "document.getElementById('btn').addEventListener('click', handler)",
+        "correct": true
+      },
+      {
+        "text": "document.getElementById('btn').onClick = handler",
+        "correct": false
+      },
+      {
+        "text": "document.querySelector('btn').addEvent('click', handler)",
+        "correct": false
+      },
+      {
+        "text": "document.getElementById('btn').attachEvent(handler)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод створює новий HTML-елемент у DOM?",
+    "answers": [
+      {
+        "text": "document.createElement()",
+        "correct": true
+      },
+      {
+        "text": "document.newElement()",
+        "correct": false
+      },
+      {
+        "text": "document.makeElement()",
+        "correct": false
+      },
+      {
+        "text": "document.buildElement()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка властивість DOM-вузла містить посилання на його батьківський вузол?",
+    "answers": [
+      {
+        "text": "parentNode",
+        "correct": true
+      },
+      {
+        "text": "parentElement",
+        "correct": false
+      },
+      {
+        "text": "ownerNode",
+        "correct": false
+      },
+      {
+        "text": "rootNode",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яким методом можна видалити елемент із DOM?",
+    "answers": [
+      {
+        "text": "element.remove()",
+        "correct": true
+      },
+      {
+        "text": "element.delete()",
+        "correct": false
+      },
+      {
+        "text": "element.destroy()",
+        "correct": false
+      },
+      {
+        "text": "element.erase()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка властивість об'єкта події (event) вказує на елемент, на якому відбулася подія?",
+    "answers": [
+      {
+        "text": "event.target",
+        "correct": true
+      },
+      {
+        "text": "event.source",
+        "correct": false
+      },
+      {
+        "text": "event.element",
+        "correct": false
+      },
+      {
+        "text": "event.origin",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод дозволяє змінити або встановити атрибут HTML-елемента через JavaScript?",
+    "answers": [
+      {
+        "text": "setAttribute()",
+        "correct": true
+      },
+      {
+        "text": "changeAttribute()",
+        "correct": false
+      },
+      {
+        "text": "modifyAttribute()",
+        "correct": false
+      },
+      {
+        "text": "updateAttribute()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених методів повертають колекцію DOM-елементів?",
+    "answers": [
+      {
+        "text": "document.querySelectorAll()",
+        "correct": true
+      },
+      {
+        "text": "document.getElementsByClassName()",
+        "correct": true
+      },
+      {
+        "text": "document.getElementsByTagName()",
+        "correct": true
+      },
+      {
+        "text": "document.querySelector()",
+        "correct": false
+      },
+      {
+        "text": "document.getElementById()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які властивості дозволяють отримати текстовий вміст DOM-елемента?",
+    "answers": [
+      {
+        "text": "textContent",
+        "correct": true
+      },
+      {
+        "text": "innerText",
+        "correct": true
+      },
+      {
+        "text": "innerHTML",
+        "correct": false
+      },
+      {
+        "text": "nodeValue",
+        "correct": false
+      },
+      {
+        "text": "outerHTML",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених тверджень про bubbling (спливання) подій є правильними?",
+    "answers": [
+      {
+        "text": "Подія спочатку спрацьовує на цільовому елементі, а потім передається вгору по DOM",
+        "correct": true
+      },
+      {
+        "text": "Метод event.stopPropagation() зупиняє спливання події",
+        "correct": true
+      },
+      {
+        "text": "Подія спливає від кореня документа до цільового елемента",
+        "correct": false
+      },
+      {
+        "text": "Усі події в DOM спливають без винятку",
+        "correct": false
+      },
+      {
+        "text": "Спливання можна зупинити методом event.preventDefault()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які методи використовуються для вставки елементів у певну позицію в DOM?",
+    "answers": [
+      {
+        "text": "insertBefore()",
+        "correct": true
+      },
+      {
+        "text": "insertAdjacentHTML()",
+        "correct": true
+      },
+      {
+        "text": "prepend()",
+        "correct": true
+      },
+      {
+        "text": "attachNode()",
+        "correct": false
+      },
+      {
+        "text": "placeElement()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених є коректними способами зміни стилів елемента через JavaScript?",
+    "answers": [
+      {
+        "text": "element.style.color = 'red'",
+        "correct": true
+      },
+      {
+        "text": "element.classList.add('my-class')",
+        "correct": true
+      },
+      {
+        "text": "element.setAttribute('style', 'color: red')",
+        "correct": true
+      },
+      {
+        "text": "element.css('color', 'red')",
+        "correct": false
+      },
+      {
+        "text": "element.setStyle('color', 'red')",
+        "correct": false
+      },
+      {
+        "text": "element.applyStyle('color: red')",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи вузлів існують у DOM-дереві?",
+    "answers": [
+      {
+        "text": "Вузол-елемент (Element node)",
+        "correct": true
+      },
+      {
+        "text": "Текстовий вузол (Text node)",
+        "correct": true
+      },
+      {
+        "text": "Вузол-коментар (Comment node)",
+        "correct": true
+      },
+      {
+        "text": "Медіа-вузол (Media node)",
+        "correct": false
+      },
+      {
+        "text": "Логічний вузол (Logic node)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених методів класу classList є коректними?",
+    "answers": [
+      {
+        "text": "classList.add()",
+        "correct": true
+      },
+      {
+        "text": "classList.remove()",
+        "correct": true
+      },
+      {
+        "text": "classList.toggle()",
+        "correct": true
+      },
+      {
+        "text": "classList.apply()",
+        "correct": false
+      },
+      {
+        "text": "classList.replace() — лише у старих браузерах",
+        "correct": false
+      },
+      {
+        "text": "classList.insert()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається процес обходу DOM знизу вгору, коли подія передається від дочірніх елементів до батьківських? (введіть одне слово українською або англійською)",
+    "answers": [
+      {
+        "text": "спливання",
+        "correct": true
+      },
+      {
+        "text": "bubbling",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яку властивість DOM-елемента використовують для отримання або зміни значення атрибута 'value' поля форми в JavaScript? (введіть назву властивості)",
+    "answers": [
+      {
+        "text": "value",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яку функцію JavaScript використовують для виконання коду через певний інтервал часу (повторювально)? (введіть назву функції)",
+    "answers": [
+      {
+        "text": "setInterval",
+        "correct": true
+      },
+      {
+        "text": "setInterval()",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається технологія, що дозволяє відправляти HTTP-запити з браузера без перезавантаження сторінки? (введіть абревіатуру або повну назву)",
+    "answers": [
+      {
+        "text": "AJAX",
+        "correct": true
+      },
+      {
+        "text": "Ajax",
+        "correct": true
+      },
+      {
+        "text": "Asynchronous JavaScript and XML",
+        "correct": true
+      }
+    ]
+  }
+]
