@@ -1,0 +1,478 @@
+[
+  {
+    "type": "single",
+    "question": "Який модуль Python використовується для генерації випадкових чисел?",
+    "answers": [
+      {
+        "text": "random",
+        "correct": true
+      },
+      {
+        "text": "math",
+        "correct": false
+      },
+      {
+        "text": "os",
+        "correct": false
+      },
+      {
+        "text": "sys",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка функція повертає випадкове дійсне число у діапазоні від 0.0 до 1.0 (не включаючи 1.0)?",
+    "answers": [
+      {
+        "text": "random.random()",
+        "correct": true
+      },
+      {
+        "text": "random.randint(0, 1)",
+        "correct": false
+      },
+      {
+        "text": "random.uniform(0, 1)",
+        "correct": false
+      },
+      {
+        "text": "random.float()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що повертає виклик random.randint(1, 6)?",
+    "answers": [
+      {
+        "text": "Випадкове ціле число від 1 до 6 включно",
+        "correct": true
+      },
+      {
+        "text": "Випадкове ціле число від 1 до 5 включно",
+        "correct": false
+      },
+      {
+        "text": "Випадкове дійсне число від 1.0 до 6.0",
+        "correct": false
+      },
+      {
+        "text": "Випадкове число від 0 до 6 включно",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка функція модуля random повертає випадковий елемент зі списку?",
+    "answers": [
+      {
+        "text": "random.choice()",
+        "correct": true
+      },
+      {
+        "text": "random.pick()",
+        "correct": false
+      },
+      {
+        "text": "random.select()",
+        "correct": false
+      },
+      {
+        "text": "random.get()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що виконує функція random.shuffle(lst)?",
+    "answers": [
+      {
+        "text": "Перемішує елементи списку lst у випадковому порядку",
+        "correct": true
+      },
+      {
+        "text": "Повертає новий перемішаний список",
+        "correct": false
+      },
+      {
+        "text": "Сортує список у випадковому порядку та повертає його",
+        "correct": false
+      },
+      {
+        "text": "Видаляє випадкові елементи зі списку",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка функція генерує випадкове дійсне число у заданому діапазоні [a, b]?",
+    "answers": [
+      {
+        "text": "random.uniform(a, b)",
+        "correct": true
+      },
+      {
+        "text": "random.random(a, b)",
+        "correct": false
+      },
+      {
+        "text": "random.float(a, b)",
+        "correct": false
+      },
+      {
+        "text": "random.randint(a, b)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що таке «зерно» (seed) генератора випадкових чисел?",
+    "answers": [
+      {
+        "text": "Початкове значення, яке визначає послідовність псевдовипадкових чисел",
+        "correct": true
+      },
+      {
+        "text": "Максимальне значення, яке може згенерувати генератор",
+        "correct": false
+      },
+      {
+        "text": "Кількість чисел, які генерує функція random()",
+        "correct": false
+      },
+      {
+        "text": "Крок між сусідніми випадковими числами",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яким буде результат виклику random.randrange(0, 10, 2)?",
+    "answers": [
+      {
+        "text": "Випадкове парне число від 0 до 8 включно",
+        "correct": true
+      },
+      {
+        "text": "Випадкове число від 0 до 10 з кроком 2",
+        "correct": false
+      },
+      {
+        "text": "Випадкове ціле число від 0 до 10 включно",
+        "correct": false
+      },
+      {
+        "text": "Випадкове непарне число від 1 до 9",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка функція повертає список із k унікальних елементів, обраних із послідовності?",
+    "answers": [
+      {
+        "text": "random.sample()",
+        "correct": true
+      },
+      {
+        "text": "random.choices()",
+        "correct": false
+      },
+      {
+        "text": "random.choice()",
+        "correct": false
+      },
+      {
+        "text": "random.pick()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Якщо двічі викликати random.seed(42), а потім random.random(), результати будуть:",
+    "answers": [
+      {
+        "text": "Однаковими обидва рази",
+        "correct": true
+      },
+      {
+        "text": "Різними, бо числа випадкові",
+        "correct": false
+      },
+      {
+        "text": "Однаковими лише при першому виклику",
+        "correct": false
+      },
+      {
+        "text": "Залежать від операційної системи",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Чим відрізняється random.choices() від random.sample()?",
+    "answers": [
+      {
+        "text": "choices() дозволяє повторення елементів, sample() — лише унікальні",
+        "correct": true
+      },
+      {
+        "text": "sample() дозволяє повторення, choices() — лише унікальні",
+        "correct": false
+      },
+      {
+        "text": "choices() працює тільки зі списками, sample() — з будь-якими об'єктами",
+        "correct": false
+      },
+      {
+        "text": "Різниці немає, це синоніми",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених функцій є функціями модуля random у Python?",
+    "answers": [
+      {
+        "text": "random.randint()",
+        "correct": true
+      },
+      {
+        "text": "random.shuffle()",
+        "correct": true
+      },
+      {
+        "text": "random.uniform()",
+        "correct": true
+      },
+      {
+        "text": "random.sqrt()",
+        "correct": false
+      },
+      {
+        "text": "random.sort()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які твердження про функцію random.random() є правильними?",
+    "answers": [
+      {
+        "text": "Повертає дійсне число типу float",
+        "correct": true
+      },
+      {
+        "text": "Діапазон значень: від 0.0 включно до 1.0 не включно",
+        "correct": true
+      },
+      {
+        "text": "Не приймає жодних аргументів",
+        "correct": true
+      },
+      {
+        "text": "Повертає ціле число",
+        "correct": false
+      },
+      {
+        "text": "Може повернути від'ємне значення",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наступних виразів можуть генерувати випадкове ціле число від 1 до 10?",
+    "answers": [
+      {
+        "text": "random.randint(1, 10)",
+        "correct": true
+      },
+      {
+        "text": "random.randrange(1, 11)",
+        "correct": true
+      },
+      {
+        "text": "random.randrange(1, 10)",
+        "correct": false
+      },
+      {
+        "text": "random.uniform(1, 10)",
+        "correct": false
+      },
+      {
+        "text": "int(random.random() * 10) + 1",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які властивості має псевдовипадковий генератор чисел у Python?",
+    "answers": [
+      {
+        "text": "Генерує числа за детермінованим алгоритмом",
+        "correct": true
+      },
+      {
+        "text": "При однаковому seed видає однакову послідовність чисел",
+        "correct": true
+      },
+      {
+        "text": "Генерує справжньо випадкові числа",
+        "correct": false
+      },
+      {
+        "text": "Послідовність чисел зрештою повторюється",
+        "correct": true
+      },
+      {
+        "text": "Не потребує початкового значення для роботи",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з тверджень про random.sample(population, k) є правильними?",
+    "answers": [
+      {
+        "text": "Повертає список із k елементів",
+        "correct": true
+      },
+      {
+        "text": "Елементи у результаті не повторюються",
+        "correct": true
+      },
+      {
+        "text": "Якщо k більше довжини population, виникне помилка ValueError",
+        "correct": true
+      },
+      {
+        "text": "Змінює вихідний список population",
+        "correct": false
+      },
+      {
+        "text": "Може повертати дублікати елементів",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Для яких практичних задач використовують модуль random у Python?",
+    "answers": [
+      {
+        "text": "Генерація тестових даних",
+        "correct": true
+      },
+      {
+        "text": "Моделювання ігор (симуляція кидання кубика)",
+        "correct": true
+      },
+      {
+        "text": "Перемішування колоди карт",
+        "correct": true
+      },
+      {
+        "text": "Точні наукові розрахунки, що вимагають справжньої випадковості",
+        "correct": false
+      },
+      {
+        "text": "Криптографічно стійке шифрування даних",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених виразів є синтаксично правильними у Python?",
+    "answers": [
+      {
+        "text": "import random",
+        "correct": true
+      },
+      {
+        "text": "from random import randint",
+        "correct": true
+      },
+      {
+        "text": "import random.randint",
+        "correct": false
+      },
+      {
+        "text": "from random import *",
+        "correct": true
+      },
+      {
+        "text": "include random",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається функція модуля random, яка перемішує список на місці (змінює оригінальний список)?",
+    "answers": [
+      {
+        "text": "shuffle",
+        "correct": true
+      },
+      {
+        "text": "random.shuffle",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яке ціле число виведе наступний код?\nimport random\nrandom.seed(0)\nprint(random.randint(1, 10))",
+    "answers": [
+      {
+        "text": "6",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Назвіть модуль Python, який використовується для криптографічно стійкої генерації випадкових чисел (замість модуля random).",
+    "answers": [
+      {
+        "text": "secrets",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається алгоритм, який за замовчуванням використовує модуль random у Python для генерації псевдовипадкових чисел (два слова або абревіатура)?",
+    "answers": [
+      {
+        "text": "Вихор Мерсенна",
+        "correct": true
+      },
+      {
+        "text": "Mersenne Twister",
+        "correct": true
+      },
+      {
+        "text": "MT19937",
+        "correct": true
+      }
+    ]
+  }
+]
