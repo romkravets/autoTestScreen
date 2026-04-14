@@ -1,0 +1,462 @@
+[
+  {
+    "type": "single",
+    "question": "Яка бібліотека використовується для створення графічних інтерфейсів у Python?",
+    "answers": [
+      {
+        "text": "tkinter",
+        "correct": true
+      },
+      {
+        "text": "PyQt",
+        "correct": false
+      },
+      {
+        "text": "wxPython",
+        "correct": false
+      },
+      {
+        "text": "Kivy",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод використовується для створення нового вікна у tkinter?",
+    "answers": [
+      {
+        "text": "Tk()",
+        "correct": true
+      },
+      {
+        "text": "Frame()",
+        "correct": false
+      },
+      {
+        "text": "Label()",
+        "correct": false
+      },
+      {
+        "text": "Button()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка подія використовується для обробки натискання кнопки у tkinter?",
+    "answers": [
+      {
+        "text": "command",
+        "correct": true
+      },
+      {
+        "text": "bind",
+        "correct": false
+      },
+      {
+        "text": "config",
+        "correct": false
+      },
+      {
+        "text": "pack",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод використовується для встановлення тексту у кнопці у tkinter?",
+    "answers": [
+      {
+        "text": "config",
+        "correct": true
+      },
+      {
+        "text": "pack",
+        "correct": false
+      },
+      {
+        "text": "grid",
+        "correct": false
+      },
+      {
+        "text": "place",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка властивість використовується для установки кольору фону у вікні у tkinter?",
+    "answers": [
+      {
+        "text": "bg",
+        "correct": true
+      },
+      {
+        "text": "fg",
+        "correct": false
+      },
+      {
+        "text": "width",
+        "correct": false
+      },
+      {
+        "text": "height",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод використовується для закриття вікна у tkinter?",
+    "answers": [
+      {
+        "text": "destroy",
+        "correct": true
+      },
+      {
+        "text": "quit",
+        "correct": false
+      },
+      {
+        "text": "exit",
+        "correct": false
+      },
+      {
+        "text": "close",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка бібліотека використовується для створення графічних побудов у Python?",
+    "answers": [
+      {
+        "text": "matplotlib",
+        "correct": true
+      },
+      {
+        "text": "tkinter",
+        "correct": false
+      },
+      {
+        "text": "PyQt",
+        "correct": false
+      },
+      {
+        "text": "wxPython",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який тип даних використовується для роботи з графічними побудовами у Python?",
+    "answers": [
+      {
+        "text": "масиви",
+        "correct": true
+      },
+      {
+        "text": "списки",
+        "correct": false
+      },
+      {
+        "text": "кортежі",
+        "correct": false
+      },
+      {
+        "text": "словники",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка функція використовується для створення графіка у matplotlib?",
+    "answers": [
+      {
+        "text": "plot",
+        "correct": true
+      },
+      {
+        "text": "show",
+        "correct": false
+      },
+      {
+        "text": "savefig",
+        "correct": false
+      },
+      {
+        "text": "clf",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка властивість використовується для установки кольору графіка у matplotlib?",
+    "answers": [
+      {
+        "text": "color",
+        "correct": true
+      },
+      {
+        "text": "c",
+        "correct": false
+      },
+      {
+        "text": "marker",
+        "correct": false
+      },
+      {
+        "text": "linestyle",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод використовується для додавання підпису до графіка у matplotlib?",
+    "answers": [
+      {
+        "text": "xlabel",
+        "correct": true
+      },
+      {
+        "text": "ylabel",
+        "correct": false
+      },
+      {
+        "text": "title",
+        "correct": false
+      },
+      {
+        "text": "legend",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які властивості використовуються для установки розміру вікна у tkinter?",
+    "answers": [
+      {
+        "text": "width",
+        "correct": true
+      },
+      {
+        "text": "height",
+        "correct": true
+      },
+      {
+        "text": "bg",
+        "correct": false
+      },
+      {
+        "text": "fg",
+        "correct": false
+      },
+      {
+        "text": "font",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які методи використовуються для встановлення тексту у кнопці у tkinter?",
+    "answers": [
+      {
+        "text": "config",
+        "correct": true
+      },
+      {
+        "text": "text",
+        "correct": true
+      },
+      {
+        "text": "pack",
+        "correct": false
+      },
+      {
+        "text": "grid",
+        "correct": false
+      },
+      {
+        "text": "place",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які властивості використовуються для установки кольору фону у вікні у tkinter?",
+    "answers": [
+      {
+        "text": "bg",
+        "correct": true
+      },
+      {
+        "text": "background",
+        "correct": true
+      },
+      {
+        "text": "fg",
+        "correct": false
+      },
+      {
+        "text": "width",
+        "correct": false
+      },
+      {
+        "text": "height",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які бібліотеки використовуються для створення графічних побудов у Python?",
+    "answers": [
+      {
+        "text": "matplotlib",
+        "correct": true
+      },
+      {
+        "text": "seaborn",
+        "correct": true
+      },
+      {
+        "text": "tkinter",
+        "correct": false
+      },
+      {
+        "text": "PyQt",
+        "correct": false
+      },
+      {
+        "text": "wxPython",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи даних використовуються для роботи з графічними побудовами у Python?",
+    "answers": [
+      {
+        "text": "масиви",
+        "correct": true
+      },
+      {
+        "text": "списки",
+        "correct": true
+      },
+      {
+        "text": "кортежі",
+        "correct": false
+      },
+      {
+        "text": "словники",
+        "correct": false
+      },
+      {
+        "text": "функції",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які методи використовуються для створення графіка у matplotlib?",
+    "answers": [
+      {
+        "text": "plot",
+        "correct": true
+      },
+      {
+        "text": "scatter",
+        "correct": true
+      },
+      {
+        "text": "bar",
+        "correct": false
+      },
+      {
+        "text": "hist",
+        "correct": false
+      },
+      {
+        "text": "pie",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які властивості використовуються для установки кольору графіка у matplotlib?",
+    "answers": [
+      {
+        "text": "color",
+        "correct": true
+      },
+      {
+        "text": "c",
+        "correct": true
+      },
+      {
+        "text": "marker",
+        "correct": false
+      },
+      {
+        "text": "linestyle",
+        "correct": false
+      },
+      {
+        "text": "linewidth",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яка бібліотека використовується для створення графічних інтерфейсів у Python?",
+    "answers": [
+      {
+        "text": "tkinter"
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який метод використовується для створення нового вікна у tkinter?",
+    "answers": [
+      {
+        "text": "Tk()"
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яка подія використовується для обробки натискання кнопки у tkinter?",
+    "answers": [
+      {
+        "text": "command"
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яка бібліотека використовується для створення графічних побудов у Python?",
+    "answers": [
+      {
+        "text": "matplotlib"
+      }
+    ]
+  }
+]

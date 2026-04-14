@@ -1,0 +1,470 @@
+[
+  {
+    "type": "single",
+    "question": "Який тип оператора використовується для розгалуження програми в Python?",
+    "answers": [
+      {
+        "text": "Логічний оператор",
+        "correct": false
+      },
+      {
+        "text": "Оператор порівняння",
+        "correct": false
+      },
+      {
+        "text": "Умовний оператор",
+        "correct": true
+      },
+      {
+        "text": "Циклічний оператор",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який синтаксис використовується для позначення початку умовного оператора в Python?",
+    "answers": [
+      {
+        "text": "if",
+        "correct": true
+      },
+      {
+        "text": "else",
+        "correct": false
+      },
+      {
+        "text": "for",
+        "correct": false
+      },
+      {
+        "text": "while",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як називається оператор, який використовується для визначення альтернативного коду в умовному операторі?",
+    "answers": [
+      {
+        "text": "elif",
+        "correct": false
+      },
+      {
+        "text": "else",
+        "correct": true
+      },
+      {
+        "text": "if",
+        "correct": false
+      },
+      {
+        "text": "then",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який тип даних використовується для зберігання умовного результату в Python?",
+    "answers": [
+      {
+        "text": "Boolean",
+        "correct": true
+      },
+      {
+        "text": "Integer",
+        "correct": false
+      },
+      {
+        "text": "Float",
+        "correct": false
+      },
+      {
+        "text": "String",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як називається оператор, який використовується для визначення додаткових умов в умовному операторі?",
+    "answers": [
+      {
+        "text": "elif",
+        "correct": true
+      },
+      {
+        "text": "else",
+        "correct": false
+      },
+      {
+        "text": "if",
+        "correct": false
+      },
+      {
+        "text": "then",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який тип оператора використовується для повторення kodu в Python?",
+    "answers": [
+      {
+        "text": "Умовний оператор",
+        "correct": false
+      },
+      {
+        "text": "Циклічний оператор",
+        "correct": true
+      },
+      {
+        "text": "Логічний оператор",
+        "correct": false
+      },
+      {
+        "text": "Оператор порівняння",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як називається циклічний оператор, який використовується для повторення коду за допомогою лічильника?",
+    "answers": [
+      {
+        "text": "for",
+        "correct": true
+      },
+      {
+        "text": "while",
+        "correct": false
+      },
+      {
+        "text": "if",
+        "correct": false
+      },
+      {
+        "text": "else",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який тип даних використовується для зберігання лічильника в циклічному операторі?",
+    "answers": [
+      {
+        "text": "Integer",
+        "correct": true
+      },
+      {
+        "text": "Float",
+        "correct": false
+      },
+      {
+        "text": "Boolean",
+        "correct": false
+      },
+      {
+        "text": "String",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як називається циклічний оператор, який використовується для повторення коду поки умова не буде виконана?",
+    "answers": [
+      {
+        "text": "while",
+        "correct": true
+      },
+      {
+        "text": "for",
+        "correct": false
+      },
+      {
+        "text": "if",
+        "correct": false
+      },
+      {
+        "text": "else",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який тип оператора використовується для виходу з циклу?",
+    "answers": [
+      {
+        "text": "break",
+        "correct": true
+      },
+      {
+        "text": "continue",
+        "correct": false
+      },
+      {
+        "text": "return",
+        "correct": false
+      },
+      {
+        "text": "exit",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як називається оператор, який використовується для продовження виконання коду з наступної ітерації циклу?",
+    "answers": [
+      {
+        "text": "continue",
+        "correct": true
+      },
+      {
+        "text": "break",
+        "correct": false
+      },
+      {
+        "text": "return",
+        "correct": false
+      },
+      {
+        "text": "exit",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи операторів використовуються для розгалуження програми в Python?",
+    "answers": [
+      {
+        "text": "Умовний оператор",
+        "correct": true
+      },
+      {
+        "text": "Циклічний оператор",
+        "correct": true
+      },
+      {
+        "text": "Логічний оператор",
+        "correct": false
+      },
+      {
+        "text": "Оператор порівняння",
+        "correct": false
+      },
+      {
+        "text": "Оператор присвоювання",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які синтаксиси використовуються для позначення початку умовного оператора в Python?",
+    "answers": [
+      {
+        "text": "if",
+        "correct": true
+      },
+      {
+        "text": "elif",
+        "correct": true
+      },
+      {
+        "text": "else",
+        "correct": true
+      },
+      {
+        "text": "for",
+        "correct": false
+      },
+      {
+        "text": "while",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи даних використовуються для зберігання умовного результату в Python?",
+    "answers": [
+      {
+        "text": "Boolean",
+        "correct": true
+      },
+      {
+        "text": "Integer",
+        "correct": false
+      },
+      {
+        "text": "Float",
+        "correct": false
+      },
+      {
+        "text": "String",
+        "correct": false
+      },
+      {
+        "text": "List",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які оператори використовуються для повторення коду в Python?",
+    "answers": [
+      {
+        "text": "for",
+        "correct": true
+      },
+      {
+        "text": "while",
+        "correct": true
+      },
+      {
+        "text": "if",
+        "correct": false
+      },
+      {
+        "text": "else",
+        "correct": false
+      },
+      {
+        "text": "break",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи операторів використовуються для виходу з циклу?",
+    "answers": [
+      {
+        "text": "break",
+        "correct": true
+      },
+      {
+        "text": "continue",
+        "correct": false
+      },
+      {
+        "text": "return",
+        "correct": false
+      },
+      {
+        "text": "exit",
+        "correct": false
+      },
+      {
+        "text": "pass",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які синтаксиси використовуються для позначення початку циклічного оператора в Python?",
+    "answers": [
+      {
+        "text": "for",
+        "correct": true
+      },
+      {
+        "text": "while",
+        "correct": true
+      },
+      {
+        "text": "if",
+        "correct": false
+      },
+      {
+        "text": "else",
+        "correct": false
+      },
+      {
+        "text": "break",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи даних використовуються для зберігання лічильника в циклічному операторі?",
+    "answers": [
+      {
+        "text": "Integer",
+        "correct": true
+      },
+      {
+        "text": "Float",
+        "correct": false
+      },
+      {
+        "text": "Boolean",
+        "correct": false
+      },
+      {
+        "text": "String",
+        "correct": false
+      },
+      {
+        "text": "List",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який синтаксис використовується для позначення початку умовного оператора в Python?",
+    "answers": [
+      {
+        "text": "if",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який тип даних використовується для зберігання умовного результату в Python?",
+    "answers": [
+      {
+        "text": "Boolean",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який синтаксис використовується для позначення початку циклічного оператора в Python?",
+    "answers": [
+      {
+        "text": "for",
+        "correct": true
+      },
+      {
+        "text": "while",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який тип даних використовується для зберігання лічильника в циклічному операторі?",
+    "answers": [
+      {
+        "text": "Integer",
+        "correct": true
+      }
+    ]
+  }
+]

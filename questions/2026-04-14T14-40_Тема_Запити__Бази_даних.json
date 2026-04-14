@@ -1,0 +1,478 @@
+[
+  {
+    "type": "single",
+    "question": "Що таке запит у базі даних?",
+    "answers": [
+      {
+        "text": "Засіб для отримання потрібних даних з бази даних за певними умовами",
+        "correct": true
+      },
+      {
+        "text": "Таблиця для зберігання даних",
+        "correct": false
+      },
+      {
+        "text": "Форма для введення нових записів",
+        "correct": false
+      },
+      {
+        "text": "Звіт для виведення результатів на друк",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка мова використовується для створення запитів у реляційних базах даних?",
+    "answers": [
+      {
+        "text": "SQL",
+        "correct": true
+      },
+      {
+        "text": "HTML",
+        "correct": false
+      },
+      {
+        "text": "Pascal",
+        "correct": false
+      },
+      {
+        "text": "Python",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який оператор SQL використовується для вибірки даних з таблиці?",
+    "answers": [
+      {
+        "text": "SELECT",
+        "correct": true
+      },
+      {
+        "text": "INSERT",
+        "correct": false
+      },
+      {
+        "text": "DELETE",
+        "correct": false
+      },
+      {
+        "text": "UPDATE",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке ключове слово у SQL задає умову відбору записів?",
+    "answers": [
+      {
+        "text": "WHERE",
+        "correct": true
+      },
+      {
+        "text": "FROM",
+        "correct": false
+      },
+      {
+        "text": "ORDER BY",
+        "correct": false
+      },
+      {
+        "text": "GROUP BY",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який тип запиту дозволяє додавати нові записи до таблиці?",
+    "answers": [
+      {
+        "text": "Запит на додавання (INSERT)",
+        "correct": true
+      },
+      {
+        "text": "Запит на вибірку (SELECT)",
+        "correct": false
+      },
+      {
+        "text": "Запит на видалення (DELETE)",
+        "correct": false
+      },
+      {
+        "text": "Запит на оновлення (UPDATE)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке ключове слово SQL використовується для сортування результатів запиту?",
+    "answers": [
+      {
+        "text": "ORDER BY",
+        "correct": true
+      },
+      {
+        "text": "SORT BY",
+        "correct": false
+      },
+      {
+        "text": "GROUP BY",
+        "correct": false
+      },
+      {
+        "text": "HAVING",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що означає символ «*» у запиті SELECT * FROM Таблиця?",
+    "answers": [
+      {
+        "text": "Вибрати всі поля таблиці",
+        "correct": true
+      },
+      {
+        "text": "Вибрати перший запис таблиці",
+        "correct": false
+      },
+      {
+        "text": "Вибрати всі таблиці бази даних",
+        "correct": false
+      },
+      {
+        "text": "Вибрати унікальні записи",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке ключове слово SQL дозволяє уникнути дублювання рядків у результаті запиту?",
+    "answers": [
+      {
+        "text": "DISTINCT",
+        "correct": true
+      },
+      {
+        "text": "UNIQUE",
+        "correct": false
+      },
+      {
+        "text": "DIFFERENT",
+        "correct": false
+      },
+      {
+        "text": "FILTER",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка агрегатна функція SQL повертає кількість записів у вибірці?",
+    "answers": [
+      {
+        "text": "COUNT()",
+        "correct": true
+      },
+      {
+        "text": "SUM()",
+        "correct": false
+      },
+      {
+        "text": "AVG()",
+        "correct": false
+      },
+      {
+        "text": "MAX()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який оператор SQL використовується для об'єднання двох таблиць за спільним полем?",
+    "answers": [
+      {
+        "text": "JOIN",
+        "correct": true
+      },
+      {
+        "text": "MERGE",
+        "correct": false
+      },
+      {
+        "text": "CONNECT",
+        "correct": false
+      },
+      {
+        "text": "LINK",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке ключове слово у SQL застосовується для групування записів за значенням поля?",
+    "answers": [
+      {
+        "text": "GROUP BY",
+        "correct": true
+      },
+      {
+        "text": "ORDER BY",
+        "correct": false
+      },
+      {
+        "text": "HAVING",
+        "correct": false
+      },
+      {
+        "text": "WHERE",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які типи запитів існують у СУБД Access?",
+    "answers": [
+      {
+        "text": "Запит на вибірку",
+        "correct": true
+      },
+      {
+        "text": "Запит на оновлення",
+        "correct": true
+      },
+      {
+        "text": "Запит на видалення",
+        "correct": true
+      },
+      {
+        "text": "Запит на форматування",
+        "correct": false
+      },
+      {
+        "text": "Запит на друк",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які агрегатні функції використовуються у SQL-запитах?",
+    "answers": [
+      {
+        "text": "SUM()",
+        "correct": true
+      },
+      {
+        "text": "AVG()",
+        "correct": true
+      },
+      {
+        "text": "MAX()",
+        "correct": true
+      },
+      {
+        "text": "PRINT()",
+        "correct": false
+      },
+      {
+        "text": "OPEN()",
+        "correct": false
+      },
+      {
+        "text": "LOAD()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які умови можна використовувати у секції WHERE запиту SQL?",
+    "answers": [
+      {
+        "text": "Порівняння значень (=, >, <)",
+        "correct": true
+      },
+      {
+        "text": "Логічні оператори AND, OR, NOT",
+        "correct": true
+      },
+      {
+        "text": "Оператор BETWEEN для перевірки діапазону",
+        "correct": true
+      },
+      {
+        "text": "Оператор PRINT для виведення даних",
+        "correct": false
+      },
+      {
+        "text": "Оператор FORMAT для форматування",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які режими створення запиту підтримує Microsoft Access?",
+    "answers": [
+      {
+        "text": "Режим конструктора",
+        "correct": true
+      },
+      {
+        "text": "Режим SQL",
+        "correct": true
+      },
+      {
+        "text": "Майстер запитів",
+        "correct": true
+      },
+      {
+        "text": "Режим слайд-шоу",
+        "correct": false
+      },
+      {
+        "text": "Режим малювання",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які дії виконує запит на оновлення (UPDATE) у SQL?",
+    "answers": [
+      {
+        "text": "Змінює значення в існуючих записах таблиці",
+        "correct": true
+      },
+      {
+        "text": "Застосовує умову відбору через WHERE",
+        "correct": true
+      },
+      {
+        "text": "Додає нові таблиці до бази даних",
+        "correct": false
+      },
+      {
+        "text": "Видаляє структуру таблиці",
+        "correct": false
+      },
+      {
+        "text": "Створює резервну копію бази даних",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які можливості надає запит на вибірку у базі даних?",
+    "answers": [
+      {
+        "text": "Відбір записів за заданими умовами",
+        "correct": true
+      },
+      {
+        "text": "Сортування результатів вибірки",
+        "correct": true
+      },
+      {
+        "text": "Обчислення підсумкових значень",
+        "correct": true
+      },
+      {
+        "text": "Зміна структури таблиці",
+        "correct": false
+      },
+      {
+        "text": "Видалення бази даних",
+        "correct": false
+      },
+      {
+        "text": "Форматування зовнішнього вигляду форм",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які оператори SQL використовуються для роботи з рядковими значеннями?",
+    "answers": [
+      {
+        "text": "LIKE (пошук за шаблоном)",
+        "correct": true
+      },
+      {
+        "text": "IN (перевірка входження у список значень)",
+        "correct": true
+      },
+      {
+        "text": "DIVIDE (ділення рядків)",
+        "correct": false
+      },
+      {
+        "text": "APPEND (дописування рядка)",
+        "correct": false
+      },
+      {
+        "text": "LOOP (циклічна обробка)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається мова структурованих запитів, що використовується для роботи з реляційними базами даних?",
+    "answers": [
+      {
+        "text": "SQL",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яке ключове слово SQL вказує таблицю або таблиці, з яких відбираються дані у запиті SELECT?",
+    "answers": [
+      {
+        "text": "FROM",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яка агрегатна функція SQL обчислює середнє арифметичне значення числового поля?",
+    "answers": [
+      {
+        "text": "AVG",
+        "correct": true
+      },
+      {
+        "text": "AVG()",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який символ-шаблон використовується у SQL-операторі LIKE для заміни будь-якої послідовності символів?",
+    "answers": [
+      {
+        "text": "%",
+        "correct": true
+      }
+    ]
+  }
+]

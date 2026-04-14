@@ -227,3 +227,45 @@ questions/         — збережені JSON з питаннями
 sessions/          — сесія браузера (не комітити!)
 debug/             — скриншоти при помилках
 ```
+
+Скопіюй .env і заповни ключ:
+
+cp .env .env.local # або редагуй .env напряму
+Мінімум потрібен один з:
+
+ANTHROPIC*API_KEY=sk-ant-... (Claude)
+GROQ_API_KEY=gsk*... (безкоштовно) 2. Логін (один раз)
+
+npm run login
+Відкриється браузер → увійди через Google → сесія збережеться.
+
+3. Команда create
+   З URL джерела:
+
+node src/index.js create -t "Назва тесту" -s https://example.com/article
+З PDF або DOCX:
+
+node src/index.js create -t "Назва тесту" -s ./docs/file.pdf
+З довільного промпту (без джерела):
+
+node src/index.js create -t "Назва тесту" -p "Створи тест про безпеку дорожнього руху"
+З готового JSON (пропустити генерацію):
+
+node src/index.js create -t "Назва тесту" --load-questions ./questions/file.json
+Всі опції
+Опція Опис За замовч.
+-t Назва тесту (обов'язково) —
+-s URL, PDF або DOCX —
+-p Текстовий промпт —
+-c Кількість питань 22
+-m Модель: claude, groq, ollama:llama3.2 claude
+--headless Браузер без GUI false
+--load-questions Завантажити питання з JSON —
+--url URL існуючого тесту в дизайнері —
+
+node server.js
+Відкрий браузер: http://localhost:5173
+або
+якщо зайнят ий то
+PORT_UI=5200 npm run start-ui
+Відкрий: http://localhost:5200
