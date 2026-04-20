@@ -1,0 +1,502 @@
+[
+  {
+    "type": "single",
+    "question": "Як розшифровується абревіатура ШІ у контексті комп'ютерних технологій?",
+    "answers": [
+      {
+        "text": "Штучний інтелект",
+        "correct": true
+      },
+      {
+        "text": "Широкий інтерфейс",
+        "correct": false
+      },
+      {
+        "text": "Шаблонна інформація",
+        "correct": false
+      },
+      {
+        "text": "Швидкісна інтеграція",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який рік вважається роком офіційного введення терміну «Artificial Intelligence»?",
+    "answers": [
+      {
+        "text": "1956",
+        "correct": true
+      },
+      {
+        "text": "1969",
+        "correct": false
+      },
+      {
+        "text": "1943",
+        "correct": false
+      },
+      {
+        "text": "1972",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка модель машинного навчання відноситься до класу великих мовних моделей (LLM)?",
+    "answers": [
+      {
+        "text": "GPT-4",
+        "correct": true
+      },
+      {
+        "text": "ResNet-50",
+        "correct": false
+      },
+      {
+        "text": "YOLO",
+        "correct": false
+      },
+      {
+        "text": "K-Means",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка техніка навчання використовується, коли модель отримує як мічені, так і немічені дані?",
+    "answers": [
+      {
+        "text": "Напівкероване навчання",
+        "correct": true
+      },
+      {
+        "text": "Кероване навчання",
+        "correct": false
+      },
+      {
+        "text": "Навчання з підкріпленням",
+        "correct": false
+      },
+      {
+        "text": "Некероване навчання",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який тест використовується для оцінки здатності машини демонструвати інтелектуальну поведінку, рівнозначну людській?",
+    "answers": [
+      {
+        "text": "Тест Тюрінга",
+        "correct": true
+      },
+      {
+        "text": "Тест Роршаха",
+        "correct": false
+      },
+      {
+        "text": "Тест Беккера",
+        "correct": false
+      },
+      {
+        "text": "Тест Айзенка",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка архітектура нейронних мереж лежить в основі більшості сучасних великих мовних моделей?",
+    "answers": [
+      {
+        "text": "Трансформер",
+        "correct": true
+      },
+      {
+        "text": "Рекурентна нейронна мережа (RNN)",
+        "correct": false
+      },
+      {
+        "text": "Згорткова нейронна мережа (CNN)",
+        "correct": false
+      },
+      {
+        "text": "Мережа Хопфілда",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який термін описує ситуацію, коли модель ШІ дуже добре навчилася на тренувальних даних, але погано узагальнює нові дані?",
+    "answers": [
+      {
+        "text": "Перенавчання (overfitting)",
+        "correct": true
+      },
+      {
+        "text": "Недонавчання (underfitting)",
+        "correct": false
+      },
+      {
+        "text": "Регуляризація",
+        "correct": false
+      },
+      {
+        "text": "Нормалізація",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який з наведених прикладів є застосуванням комп'ютерного зору (Computer Vision)?",
+    "answers": [
+      {
+        "text": "Розпізнавання облич на фотографіях",
+        "correct": true
+      },
+      {
+        "text": "Генерація тексту за запитом",
+        "correct": false
+      },
+      {
+        "text": "Машинний переклад речень",
+        "correct": false
+      },
+      {
+        "text": "Прогнозування курсу акцій",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка компанія розробила чат-бот ChatGPT?",
+    "answers": [
+      {
+        "text": "OpenAI",
+        "correct": true
+      },
+      {
+        "text": "Google DeepMind",
+        "correct": false
+      },
+      {
+        "text": "Meta AI",
+        "correct": false
+      },
+      {
+        "text": "Microsoft Research",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що таке «галюцинація» у контексті великих мовних моделей?",
+    "answers": [
+      {
+        "text": "Генерація впевнено поданої, але неправдивої інформації",
+        "correct": true
+      },
+      {
+        "text": "Відмова моделі відповідати на запит",
+        "correct": false
+      },
+      {
+        "text": "Занадто повільна обробка запиту",
+        "correct": false
+      },
+      {
+        "text": "Повторення одного і того ж тексту",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка метрика найчастіше використовується для оцінки точності класифікаційних моделей?",
+    "answers": [
+      {
+        "text": "Accuracy (точність)",
+        "correct": true
+      },
+      {
+        "text": "Ентропія",
+        "correct": false
+      },
+      {
+        "text": "Дисперсія",
+        "correct": false
+      },
+      {
+        "text": "Коваріація",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених напрямів належать до підгалузей штучного інтелекту?",
+    "answers": [
+      {
+        "text": "Машинне навчання",
+        "correct": true
+      },
+      {
+        "text": "Обробка природної мови (NLP)",
+        "correct": true
+      },
+      {
+        "text": "Комп'ютерний зір",
+        "correct": true
+      },
+      {
+        "text": "Реляційні бази даних",
+        "correct": false
+      },
+      {
+        "text": "Протоколи мережевої маршрутизації",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які методи належать до навчання без учителя (unsupervised learning)?",
+    "answers": [
+      {
+        "text": "Кластеризація K-Means",
+        "correct": true
+      },
+      {
+        "text": "Метод головних компонент (PCA)",
+        "correct": true
+      },
+      {
+        "text": "Логістична регресія",
+        "correct": false
+      },
+      {
+        "text": "Дерева рішень",
+        "correct": false
+      },
+      {
+        "text": "Автоенкодери",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з перерахованих є прикладами генеративних моделей штучного інтелекту?",
+    "answers": [
+      {
+        "text": "DALL-E",
+        "correct": true
+      },
+      {
+        "text": "Stable Diffusion",
+        "correct": true
+      },
+      {
+        "text": "ChatGPT",
+        "correct": true
+      },
+      {
+        "text": "AlphaGo",
+        "correct": false
+      },
+      {
+        "text": "BERT (лише для класифікації)",
+        "correct": false
+      },
+      {
+        "text": "Пошуковий алгоритм Google PageRank",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які характеристики притаманні глибокому навчанню (deep learning)?",
+    "answers": [
+      {
+        "text": "Використання багатошарових нейронних мереж",
+        "correct": true
+      },
+      {
+        "text": "Автоматичне виділення ознак із даних",
+        "correct": true
+      },
+      {
+        "text": "Потребує великих обсягів даних для навчання",
+        "correct": true
+      },
+      {
+        "text": "Завжди інтерпретується людиною легко",
+        "correct": false
+      },
+      {
+        "text": "Не потребує обчислювальних потужностей",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених є реальними ризиками застосування штучного інтелекту?",
+    "answers": [
+      {
+        "text": "Упередженість алгоритмів (алгоритмічний bias)",
+        "correct": true
+      },
+      {
+        "text": "Порушення конфіденційності персональних даних",
+        "correct": true
+      },
+      {
+        "text": "Поширення дезінформації через дипфейки",
+        "correct": true
+      },
+      {
+        "text": "Збільшення швидкості інтернету",
+        "correct": false
+      },
+      {
+        "text": "Покращення якості відеоігор",
+        "correct": false
+      },
+      {
+        "text": "Зростання врожайності сільськогосподарських культур",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які компоненти входять до архітектури трансформера?",
+    "answers": [
+      {
+        "text": "Механізм самоуваги (self-attention)",
+        "correct": true
+      },
+      {
+        "text": "Позиційне кодування",
+        "correct": true
+      },
+      {
+        "text": "Шари прямого поширення (feed-forward layers)",
+        "correct": true
+      },
+      {
+        "text": "Рекурентні осередки LSTM",
+        "correct": false
+      },
+      {
+        "text": "Згорткові фільтри",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які сфери активно використовують штучний інтелект сьогодні?",
+    "answers": [
+      {
+        "text": "Медична діагностика",
+        "correct": true
+      },
+      {
+        "text": "Автономне водіння",
+        "correct": true
+      },
+      {
+        "text": "Фінансові прогнози та виявлення шахрайства",
+        "correct": true
+      },
+      {
+        "text": "Виробництво паперу традиційними методами",
+        "correct": false
+      },
+      {
+        "text": "Ручне сортування листів на пошті",
+        "correct": false
+      },
+      {
+        "text": "Механічний друк книжок",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається процес донавчання вже попередньо навченої моделі на спеціалізованому наборі даних для конкретної задачі?",
+    "answers": [
+      {
+        "text": "дообучення",
+        "correct": true
+      },
+      {
+        "text": "файн-тюнінг",
+        "correct": true
+      },
+      {
+        "text": "fine-tuning",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається британський математик і криптограф, якого вважають одним із засновників теоретичних основ штучного інтелекту?",
+    "answers": [
+      {
+        "text": "Алан Тюрінг",
+        "correct": true
+      },
+      {
+        "text": "Тюрінг",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається різновид навчання, при якому агент навчається шляхом взаємодії з середовищем, отримуючи винагороди або покарання?",
+    "answers": [
+      {
+        "text": "навчання з підкріпленням",
+        "correct": true
+      },
+      {
+        "text": "reinforcement learning",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яка назва у моделі GPT означає здатність мережі враховувати зв'язки між усіма словами у тексті одночасно?",
+    "answers": [
+      {
+        "text": "увага",
+        "correct": true
+      },
+      {
+        "text": "attention",
+        "correct": true
+      },
+      {
+        "text": "механізм уваги",
+        "correct": true
+      }
+    ]
+  }
+]
