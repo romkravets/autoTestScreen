@@ -226,4 +226,4 @@ export async function generateQuestions(content, count, topic = '', modelStr = '
   return questions;
 }
 
-export { PROVIDERS };
+export { PROVIDERS, parseModelString, buildTypeDistribution, buildPrompt };

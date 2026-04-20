@@ -1,258 +1,1272 @@
 <!doctype html>
 <html lang="uk">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>autoTestScreen — UI</title>
-    <style>
-      body {
-        font-family:
-          system-ui,
-          Segoe UI,
-          Roboto,
-          Arial;
-        max-width: 900px;
-        margin: 24px auto;
-        padding: 0 16px;
-      }
-      label {
-        display: block;
-        margin-top: 12px;
-        font-weight: 600;
-      }
-      input,
-      select,
-      textarea {
-        width: 100%;
-        padding: 8px;
-        margin-top: 6px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-      }
-      button {
-        margin-top: 12px;
-        padding: 10px 14px;
-        border: none;
-        background: #0b76ef;
-        color: #fff;
-        border-radius: 8px;
-      }
-      pre {
-        background: #111;
-        color: #0f0;
-        padding: 12px;
-        border-radius: 6px;
-        max-height: 320px;
-        overflow: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>autoTestScreen — простий інтерфейс</h2>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TestCraft — autoTestScreen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design tokens (Wise-inspired) ──────────────────────────────── */
+    :root {
+      --black:    #0e0f0c;
+      --green:    #9fe870;
+      --dkgreen:  #163300;
+      --mint:     #e2f6d5;
+      --gray:     #868685;
+      --border:   rgba(14,15,12,0.12);
+      --surface:  #f6faf2;
+      --white:    #ffffff;
+      --red:      #d03238;
+      --warn:     #ffd11a;
+    }
 
-    <label
-      >Команда
-      <select id="cmd">
-        <option value="generate">generate</option>
-        <option value="create">create</option>
-      </select>
-    </label>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <label
-      style="display: flex; gap: 12px; align-items: center; margin-top: 8px"
-    >
-      <input id="followUp" type="checkbox" />
-      <span>Після генерації автоматично заповнити тест (create)</span>
-    </label>
+    body {
+      font-family: 'Inter', Helvetica, Arial, sans-serif;
+      font-feature-settings: "calt";
+      background: var(--surface);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+    }
 
-    <label
-      style="display: flex; gap: 12px; align-items: center; margin-top: 6px"
-    >
-      <input id="autoConfirm" type="checkbox" checked />
-      <span>Автоматично натискати Enter для продовження (для create)</span>
-    </label>
+    /* ── Layout ─────────────────────────────────────────────────────── */
+    #sidebar {
+      width: 220px;
+      min-height: 100vh;
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+      flex-shrink: 0;
+    }
+    .sidebar-logo {
+      padding: 0 20px 24px;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 0.9;
+      letter-spacing: -0.5px;
+      color: var(--black);
+    }
+    .sidebar-logo span {
+      display: inline-block;
+      background: var(--green);
+      color: var(--dkgreen);
+      border-radius: 6px;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray);
+      text-decoration: none;
+      border-radius: 0;
+      transition: background 0.15s, color 0.15s;
+      cursor: pointer;
+    }
+    nav a:hover { background: var(--mint); color: var(--dkgreen); }
+    nav a.active { background: var(--mint); color: var(--dkgreen); border-right: 3px solid var(--green); }
+    nav a svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .sidebar-bottom {
+      margin-top: auto;
+      padding: 16px 20px;
+    }
+    #session-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 9999px;
+      background: var(--mint);
+      color: var(--dkgreen);
+    }
+    #session-badge.no-session { background: #ffeaea; color: var(--red); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .dot.red { background: var(--red); }
 
-    <label
-      style="display: flex; gap: 12px; align-items: center; margin-top: 6px"
-    >
-      <input id="openUrl" type="checkbox" />
-      <span
-        >Відкривати сторінку редактора після успіху (якщо задано `url`)</span
-      >
-    </label>
+    #main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px 48px;
+      max-width: 1100px;
+    }
 
-    <label
-      >Prompt / Тема
-      <textarea
-        id="prompt"
-        rows="3"
-        placeholder="Текст або тема для генерації"
-      ></textarea>
-    </label>
+    /* ── Pages ──────────────────────────────────────────────────────── */
+    .page { display: none; }
+    .page.active { display: block; }
 
-    <label
-      >Source (URL / path to PDF/DOCX)
-      <input id="source" placeholder="https://example.com/article.pdf" />
-    </label>
+    /* ── Typography ─────────────────────────────────────────────────── */
+    .page-title {
+      font-weight: 900;
+      font-size: 48px;
+      line-height: 0.9;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .page-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+    h3 { font-weight: 700; font-size: 18px; margin-bottom: 12px; }
 
-    <label
-      >Title
-      <input id="title" placeholder="Назва тесту (обов'язково)" />
-    </label>
+    /* ── Buttons ────────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      font-feature-settings: "calt";
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s;
+      text-decoration: none;
+    }
+    .btn:hover { transform: scale(1.04); }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--green); color: var(--dkgreen); }
+    .btn-secondary { background: rgba(22,51,0,0.08); color: var(--black); }
+    .btn-danger { background: #ffeaea; color: var(--red); }
+    .btn-sm { padding: 6px 14px; font-size: 13px; }
+    .btn svg { width: 15px; height: 15px; }
 
-    <label
-      >Count
-      <input id="count" type="number" value="22" />
-    </label>
+    /* ── Cards ──────────────────────────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .card + .card { margin-top: 16px; }
 
-    <label
-      >Model
-      <input
-        id="model"
-        placeholder="claude / groq / ollama:llama3.2"
-        value="claude"
-      />
-    </label>
+    /* ── Stats row ──────────────────────────────────────────────────── */
+    .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 28px;
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat-num { font-weight: 900; font-size: 40px; line-height: 1; }
+    .stat-label { font-size: 13px; color: var(--gray); font-weight: 600; margin-top: 4px; }
 
-    <label style="font-weight: 600">Додатково</label>
-    <label style="font-weight: 400"
-      >Load questions JSON path (для create)
-      <input id="loadQuestions" placeholder="./questions/xxx.json" />
-    </label>
-    <label style="font-weight: 400"
-      >URL (для create - існуючий тест у редакторі)
-      <input
-        id="url"
-        placeholder="https://vseosvita.ua/test/designer?id=XXXXX"
-      />
-    </label>
+    /* ── Test list ──────────────────────────────────────────────────── */
+    .test-list { display: flex; flex-direction: column; gap: 12px; }
+    .test-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .test-item:hover { border-color: var(--green); }
+    .test-icon {
+      width: 40px; height: 40px;
+      background: var(--mint);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .test-icon svg { width: 20px; height: 20px; color: var(--dkgreen); }
+    .test-info { flex: 1; min-width: 0; }
+    .test-name { font-weight: 700; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .test-meta { font-size: 12px; color: var(--gray); margin-top: 2px; }
+    .test-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .badge {
+      background: var(--mint);
+      color: var(--dkgreen);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
 
-    <button id="run">Запустити</button>
+    /* ── Form ───────────────────────────────────────────────────────── */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-grid.full { grid-template-columns: 1fr; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.span2 { grid-column: span 2; }
+    label.fl { font-size: 13px; font-weight: 700; color: var(--black); }
+    input, select, textarea {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--white);
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(159,232,112,0.25);
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    .hint { font-size: 12px; color: var(--gray); }
+    .toggle-row {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 600;
+    }
+    input[type="checkbox"] {
+      width: 18px; height: 18px; padding: 0;
+      accent-color: var(--green);
+    }
+    .form-actions { display: flex; gap: 12px; margin-top: 24px; }
 
-    <h3>Логи</h3>
-    <pre id="logs">Натисніть «Запустити» щоб побачити хід виконання...</pre>
-    <div id="result" style="margin-top: 12px"></div>
+    /* ── Logs ───────────────────────────────────────────────────────── */
+    #logs-box {
+      background: var(--black);
+      color: #9fe870;
+      font-family: 'Menlo', 'Monaco', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      padding: 16px 18px;
+      border-radius: 16px;
+      max-height: 320px;
+      overflow-y: auto;
+      margin-top: 20px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .log-line { display: block; }
+    .log-line.err { color: #ff6b6b; }
+    .log-line.done { color: #ffd11a; font-weight: 700; }
+    .log-line.saved { color: #9fe870; font-weight: 700; }
 
-    <script>
-      const $ = (id) => document.getElementById(id);
-      const logsEl = $("logs");
-      function appendLine(s) {
-        logsEl.textContent += "\n" + s;
-        logsEl.scrollTop = logsEl.scrollHeight;
-      }
+    /* ── Phase pills ────────────────────────────────────────────────── */
+    .phase-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .phase-pill {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--mint);
+      color: var(--gray);
+    }
+    .phase-pill.active { background: var(--green); color: var(--dkgreen); }
+    .phase-pill.done { background: var(--mint); color: var(--dkgreen); }
+    .phase-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 
-      $("run").addEventListener("click", async () => {
-        logsEl.textContent = "";
-        const body = {
-          // if user requested follow-up create after generate, send combined action
-          cmd:
-            $("cmd").value === "generate" && $("followUp").checked
-              ? "generate_and_create"
-              : $("cmd").value,
-          prompt: $("prompt").value,
-          source: $("source").value,
-          title: $("title").value,
-          count: $("count").value,
-          model: $("model").value,
-          loadQuestions: $("loadQuestions").value,
-          url: $("url").value,
-          autoConfirm: $("autoConfirm").checked,
-          openUrl: $("openUrl").checked,
-        };
+    /* ── Editor ─────────────────────────────────────────────────────── */
+    #editor-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    #editor-title { font-weight: 900; font-size: 28px; flex: 1; }
+    .q-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .q-block:focus-within { border-color: var(--green); }
+    .q-header {
+      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
+    }
+    .q-num {
+      background: var(--black);
+      color: var(--green);
+      font-weight: 900;
+      font-size: 11px;
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .q-text-input {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-bottom: 2px solid var(--border);
+      border-radius: 0;
+      padding: 4px 0;
+      background: transparent;
+    }
+    .q-text-input:focus { border-bottom-color: var(--green); box-shadow: none; }
+    .q-type-badge {
+      font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 9999px; flex-shrink: 0;
+    }
+    .q-type-single { background: #e0f0ff; color: #1a4fa3; }
+    .q-type-multiple { background: #fff0e0; color: #8a4800; }
+    .q-type-text { background: var(--mint); color: var(--dkgreen); }
+    .answers-list { display: flex; flex-direction: column; gap: 8px; margin-left: 40px; }
+    .answer-row {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .answer-row input[type="text"] {
+      flex: 1; font-size: 14px; padding: 6px 10px; border-radius: 8px;
+    }
+    .answer-row input[type="checkbox"],
+    .answer-row input[type="radio"] {
+      width: 16px; height: 16px; flex-shrink: 0; cursor: pointer;
+    }
+    .answer-row .del-ans {
+      background: none; border: none; cursor: pointer;
+      color: var(--gray); font-size: 16px; padding: 0 4px;
+      transition: color 0.15s;
+    }
+    .answer-row .del-ans:hover { color: var(--red); }
+    .add-answer-btn {
+      margin-left: 40px; margin-top: 4px;
+      background: none; border: 1px dashed var(--border);
+      border-radius: 8px; padding: 5px 12px;
+      font-size: 12px; font-weight: 600; color: var(--gray);
+      cursor: pointer; transition: border-color 0.15s, color 0.15s;
+    }
+    .add-answer-btn:hover { border-color: var(--green); color: var(--dkgreen); }
+    .del-q-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--gray); font-size: 12px; font-weight: 600;
+      padding: 4px 8px; border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+    .del-q-btn:hover { background: #ffeaea; color: var(--red); }
 
-        const resp = await fetch("/api/run", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(body),
-        });
-        if (!resp.ok) {
-          appendLine("Error starting job: " + (await resp.text()));
-          return;
+    /* ── Import modal ───────────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(14,15,12,0.5);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100;
+    }
+    .modal-overlay.hidden { display: none; }
+    .modal {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 32px;
+      width: 520px;
+      max-width: calc(100vw - 40px);
+      box-shadow: 0 24px 64px rgba(14,15,12,0.18);
+    }
+    .modal h3 { margin-bottom: 16px; }
+    .modal-actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+
+    /* ── Empty state ────────────────────────────────────────────────── */
+    .empty {
+      text-align: center; padding: 60px 20px;
+      color: var(--gray);
+    }
+    .empty svg { width: 48px; height: 48px; margin: 0 auto 16px; display: block; color: var(--mint); }
+    .empty p { font-size: 15px; font-weight: 600; }
+
+    /* ── Notification toast ─────────────────────────────────────────── */
+    #toast {
+      position: fixed; bottom: 28px; right: 28px;
+      background: var(--black); color: var(--green);
+      font-weight: 700; font-size: 14px;
+      padding: 12px 20px; border-radius: 9999px;
+      box-shadow: 0 8px 24px rgba(14,15,12,0.25);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 200;
+    }
+    #toast.hidden { opacity: 0; pointer-events: none; transform: translateY(8px); }
+
+    /* ── Session warning banner ─────────────────────────────────────── */
+    #session-warn {
+      background: #fff8e0;
+      border: 1px solid var(--warn);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #7a5800;
+      margin-top: 8px;
+      display: none;
+    }
+    #session-age {
+      font-size: 11px;
+      color: var(--gray);
+      font-weight: 600;
+      margin-top: 4px;
+      display: none;
+    }
+
+    /* ── Login modal ────────────────────────────────────────────────── */
+    #login-logs {
+      background: var(--black);
+      color: #9fe870;
+      font-family: 'Menlo', 'Monaco', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      padding: 12px 14px;
+      border-radius: 12px;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin-top: 14px;
+      display: none;
+    }
+    #confirm-login-btn {
+      margin-top: 12px;
+      width: 100%;
+      justify-content: center;
+      display: none;
+    }
+
+    /* ── Scrollbar ──────────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Sidebar ─────────────────────────────────────────────────────────── -->
+<aside id="sidebar">
+  <div class="sidebar-logo">TestCraft <span>BETA</span></div>
+  <nav>
+    <a data-page="dashboard" class="active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Дашборд
+    </a>
+    <a data-page="tests">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      Тести
+    </a>
+    <a data-page="create">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Створити тест
+    </a>
+    <a data-page="editor" id="nav-editor" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Редактор
+    </a>
+  </nav>
+  <div class="sidebar-bottom">
+    <div id="session-badge" class="no-session">
+      <div class="dot red" id="session-dot"></div>
+      <span id="session-text">Не авторизовано</span>
+    </div>
+    <div id="session-age"></div>
+    <div id="session-warn">⚠ Сесія стара — можливо треба перелогінитись</div>
+    <button class="btn btn-secondary btn-sm" id="login-btn" style="margin-top:10px;width:100%;justify-content:center">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      <span id="login-btn-text">Увійти</span>
+    </button>
+  </div>
+</aside>
+
+<!-- ── Main ────────────────────────────────────────────────────────────── -->
+<main id="main">
+
+  <!-- DASHBOARD -->
+  <section class="page active" id="page-dashboard">
+    <div class="page-title">Дашборд</div>
+    <div class="page-sub">Огляд та швидкі дії</div>
+    <div class="stats" id="stats-row">
+      <div class="stat-card"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Тестів збережено</div></div>
+      <div class="stat-card"><div class="stat-num" id="stat-questions">—</div><div class="stat-label">Питань загалом</div></div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn btn-primary" data-page="create">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Новий тест
+      </button>
+      <button class="btn btn-secondary" id="import-btn-dash">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Імпорт JSON
+      </button>
+    </div>
+  </section>
+
+  <!-- TESTS LIST -->
+  <section class="page" id="page-tests">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+      <div class="page-title" style="margin:0">Тести</div>
+      <button class="btn btn-secondary btn-sm" id="import-btn-list">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Імпорт
+      </button>
+    </div>
+    <div class="page-sub">Збережені JSON-файли з питаннями</div>
+    <div class="test-list" id="test-list">
+      <div class="empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <p>Тестів ще немає</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATE -->
+  <section class="page" id="page-create">
+    <div class="page-title">Створити тест</div>
+    <div class="page-sub">Генерація питань через AI та заповнення на vseosvita.ua</div>
+
+    <div class="card">
+      <h3>Параметри</h3>
+      <div class="form-grid">
+        <div class="field span2">
+          <label class="fl">Команда</label>
+          <select id="cmd">
+            <option value="generate">Тільки генерація → JSON</option>
+            <option value="create">Генерація + заповнення на сайті</option>
+            <option value="generate_and_create">Генерація → одразу заповнення</option>
+          </select>
+        </div>
+        <div class="field span2">
+          <label class="fl">Тема / Prompt</label>
+          <textarea id="prompt" rows="3" placeholder="Наприклад: Цикл for у Python — основи та приклади"></textarea>
+        </div>
+        <div class="field span2">
+          <label class="fl">Source (URL / шлях до PDF або DOCX)</label>
+          <input id="source" placeholder="https://example.com/article.pdf" />
+          <span class="hint">Залиш порожнім, якщо вказано Prompt вище</span>
+        </div>
+        <div class="field">
+          <label class="fl">Назва тесту</label>
+          <input id="title" placeholder="Обов'язкове поле" />
+        </div>
+        <div class="field">
+          <label class="fl">Кількість питань</label>
+          <input id="count" type="number" value="22" min="1" max="100" />
+        </div>
+        <div class="field">
+          <label class="fl">Провайдер AI</label>
+          <select id="provider">
+            <option value="claude">Claude (Anthropic)</option>
+            <option value="groq">Groq (безкоштовно)</option>
+            <option value="openrouter">OpenRouter (безкоштовно)</option>
+            <option value="ollama">Ollama (локально)</option>
+            <option value="lmstudio">LM Studio (локально)</option>
+          </select>
+        </div>
+        <div class="field" id="ollama-model-field" style="display:none">
+          <label class="fl">Ollama модель</label>
+          <select id="ollama-model">
+            <option value="">Завантаження...</option>
+          </select>
+          <span class="hint" id="ollama-hint"></span>
+        </div>
+        <input type="hidden" id="model" value="claude" />
+        <div class="field">
+          <label class="fl">URL існуючого тесту (для create)</label>
+          <input id="url" placeholder="https://vseosvita.ua/test/designer?id=..." />
+        </div>
+        <div class="field span2">
+          <label class="fl">Завантажити питання з JSON (для create)</label>
+          <input id="loadQuestions" placeholder="./questions/xxx.json" />
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px">
+        <label class="toggle-row"><input type="checkbox" id="autoConfirm" checked /> Авто-підтвердження Enter для create</label>
+        <label class="toggle-row"><input type="checkbox" id="openUrl" /> Відкривати редактор після успіху</label>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" id="run-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Запустити
+      </button>
+      <button class="btn btn-secondary" id="stop-btn" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        Зупинити
+      </button>
+    </div>
+
+    <div class="phase-row" id="phase-row" style="display:none">
+      <div class="phase-pill" id="phase-gen"><div class="phase-dot"></div> Генерація</div>
+      <div class="phase-pill" id="phase-create"><div class="phase-dot"></div> Заповнення</div>
+    </div>
+
+    <div id="logs-box" style="display:none"></div>
+
+    <div id="run-result" style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"></div>
+  </section>
+
+  <!-- EDITOR -->
+  <section class="page" id="page-editor">
+    <div id="editor-header">
+      <button class="btn btn-secondary btn-sm" id="back-to-tests">← Назад</button>
+      <div id="editor-title">Редактор</div>
+      <div style="display:flex;gap:8px;margin-left:auto">
+        <button class="btn btn-secondary btn-sm" id="add-q-btn">+ Питання</button>
+        <button class="btn btn-primary" id="save-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Зберегти
+        </button>
+      </div>
+    </div>
+    <div id="questions-editor"></div>
+  </section>
+
+</main>
+
+<!-- ── Import Modal ────────────────────────────────────────────────────── -->
+<div class="modal-overlay hidden" id="import-modal">
+  <div class="modal">
+    <h3>Імпорт JSON</h3>
+    <div class="field" style="margin-bottom:12px">
+      <label class="fl">Назва тесту</label>
+      <input id="import-name" placeholder="Моя тема" />
+    </div>
+    <div class="field">
+      <label class="fl">JSON-файл або вставте текст</label>
+      <textarea id="import-text" rows="8" placeholder='[{"type":"single","question":"...","answers":[...]}]'></textarea>
+    </div>
+    <div style="margin-top:10px">
+      <input type="file" id="import-file" accept=".json" style="font-size:13px;font-weight:400;border:none;padding:0" />
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="import-cancel">Скасувати</button>
+      <button class="btn btn-primary" id="import-confirm">Імпортувати</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Login Modal ────────────────────────────────────────────────────── -->
+<div class="modal-overlay hidden" id="login-modal">
+  <div class="modal" style="width:480px">
+    <h3>Авторизація vseosvita.ua</h3>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:4px">
+      Натисни <b>Відкрити браузер</b> — з'явиться вікно Chromium.<br>
+      Залогінься через Google, потім натисни <b>Я залогінився</b>.
+    </p>
+    <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
+      <button class="btn btn-primary" id="start-login-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        Відкрити браузер
+      </button>
+      <button class="btn btn-primary" id="confirm-login-btn">
+        ✓ Я залогінився — зберегти сесію
+      </button>
+      <button class="btn btn-secondary" id="login-modal-close">Закрити</button>
+    </div>
+    <div id="login-logs"></div>
+  </div>
+</div>
+
+<!-- ── Toast ───────────────────────────────────────────────────────────── -->
+<div id="toast" class="hidden"></div>
+
+<script>
+  // ── Router ──────────────────────────────────────────────────────────────
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('nav a[data-page]');
+
+  function navigate(id) {
+    pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.page === id));
+  }
+
+  navLinks.forEach(a => a.addEventListener('click', () => navigate(a.dataset.page)));
+  document.querySelectorAll('[data-page]').forEach(el => {
+    if (!el.matches('nav a')) el.addEventListener('click', () => navigate(el.dataset.page));
+  });
+
+  // ── Toast ────────────────────────────────────────────────────────────────
+  let toastTimer;
+  function toast(msg, isErr = false) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.style.color = isErr ? '#ff6b6b' : '#9fe870';
+    el.classList.remove('hidden');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.add('hidden'), 2800);
+  }
+
+  // ── Session status ───────────────────────────────────────────────────────
+  async function checkSession() {
+    try {
+      const r = await fetch('/api/session-status');
+      const data = await r.json();
+      const badge   = document.getElementById('session-badge');
+      const dot     = document.getElementById('session-dot');
+      const text    = document.getElementById('session-text');
+      const ageEl   = document.getElementById('session-age');
+      const warnEl  = document.getElementById('session-warn');
+      const loginTx = document.getElementById('login-btn-text');
+
+      if (data.hasSession) {
+        badge.classList.remove('no-session');
+        dot.classList.remove('red');
+        text.textContent = 'Авторизовано';
+        loginTx.textContent = 'Перелогінитись';
+
+        const days = data.ageDays ?? 0;
+        ageEl.style.display = 'block';
+        ageEl.textContent = `Сесія: ${days === 0 ? 'сьогодні' : days + ' дн. тому'}`;
+
+        if (days >= 25) {
+          warnEl.style.display = 'block';
+          dot.style.background = 'var(--warn)';
+        } else {
+          warnEl.style.display = 'none';
         }
-        const data = await resp.json();
-        appendLine("Started job id=" + data.id);
+      } else {
+        badge.classList.add('no-session');
+        dot.classList.add('red');
+        text.textContent = 'Не авторизовано';
+        loginTx.textContent = 'Увійти';
+        ageEl.style.display = 'none';
+        warnEl.style.display = 'none';
+      }
+    } catch(e) {}
+  }
 
-        // display phase status
-        const genStatus =
-          document.getElementById("genStatus") ||
-          (() => {
-            const e = document.createElement("div");
-            e.id = "genStatus";
-            e.style.marginTop = "8px";
-            e.innerHTML = "<b>Generate:</b> idle";
-            document.body.insertBefore(e, document.getElementById("result"));
-            return e;
-          })();
-        const createStatus =
-          document.getElementById("createStatus") ||
-          (() => {
-            const e = document.createElement("div");
-            e.id = "createStatus";
-            e.style.marginTop = "6px";
-            e.innerHTML = "<b>Create:</b> idle";
-            document.body.insertBefore(e, document.getElementById("result"));
-            return e;
-          })();
+  // ── Login modal ──────────────────────────────────────────────────────────
+  let loginJobId = null;
+  let loginES = null;
 
-        const es = new EventSource("/api/stream/" + data.id);
-        es.onmessage = (e) => {
-          appendLine(e.data);
-          // phase markers
-          if (e.data && e.data.startsWith("PHASE:")) {
-            const txt = e.data.replace("PHASE:", "").trim();
-            if (txt.startsWith("generate"))
-              genStatus.innerHTML =
-                "<b>Generate:</b> " + txt.replace("generate:", "").trim();
-            if (txt.startsWith("create"))
-              createStatus.innerHTML =
-                "<b>Create:</b> " + txt.replace("create:", "").trim();
-          }
-          // saved file marker
-          if (e.data && e.data.startsWith("SAVED_FILE:")) {
-            const file = e.data.replace("SAVED_FILE:", "").trim();
-            const link = document.createElement("a");
-            link.href = "/" + file;
-            link.textContent =
-              "Завантажити згенерований JSON: " + file.split("/").pop();
-            link.download = file.split("/").pop();
-            const container = $("result");
-            container.innerHTML = "";
-            container.appendChild(link);
-          }
-          if (e.data && e.data.startsWith("OPEN_URL:")) {
-            const url = e.data.replace("OPEN_URL:", "").trim();
-            const container = $("result");
-            const btn = document.createElement("button");
-            btn.textContent = "Відкрити редактор";
-            btn.onclick = () => window.open(url, "_blank");
-            // prefer placing button after download link
-            const existing = container.querySelector("a");
-            if (existing) container.appendChild(document.createElement("br"));
-            container.appendChild(btn);
-            // if user enabled auto open, open via client
-            if ($("openUrl").checked) {
-              const delayMs = 1500;
-              appendLine(`Opening editor in ${delayMs}ms...`);
-              setTimeout(() => {
-                try {
-                  window.open(url, "_blank");
-                  appendLine("Opened editor URL (client): " + url);
-                } catch (e) {
-                  appendLine("Failed to open URL client-side");
-                }
-              }, delayMs);
-            }
-          }
-          if (e.data && e.data.startsWith("__PROCESS_END__")) {
-            appendLine("Процес завершено.");
-            es.close();
-          }
-        };
-        es.onerror = () => {
-          appendLine("Stream error or closed");
-          es.close();
-        };
+  document.getElementById('login-btn').addEventListener('click', () => {
+    document.getElementById('login-modal').classList.remove('hidden');
+    document.getElementById('login-logs').style.display = 'none';
+    document.getElementById('login-logs').textContent = '';
+    document.getElementById('confirm-login-btn').style.display = 'none';
+    loginJobId = null;
+    if (loginES) { loginES.close(); loginES = null; }
+  });
+
+  document.getElementById('login-modal-close').addEventListener('click', () => {
+    document.getElementById('login-modal').classList.add('hidden');
+    if (loginES) { loginES.close(); loginES = null; }
+  });
+
+  document.getElementById('start-login-btn').addEventListener('click', async () => {
+    const logsEl = document.getElementById('login-logs');
+    const confirmBtn = document.getElementById('confirm-login-btn');
+    logsEl.style.display = 'block';
+    logsEl.textContent = 'Запускаємо браузер...\n';
+    confirmBtn.style.display = 'none';
+
+    let resp;
+    try {
+      resp = await fetch('/api/run', {
+        method: 'POST',
+        headers: {'content-type':'application/json'},
+        body: JSON.stringify({ cmd: 'login' }),
       });
-    </script>
-  </body>
+    } catch {
+      logsEl.textContent += 'Помилка підключення до сервера\n';
+      return;
+    }
+
+    const { id } = await resp.json();
+    loginJobId = id;
+
+    if (loginES) loginES.close();
+    loginES = new EventSource('/api/stream/' + id);
+
+    loginES.onmessage = e => {
+      logsEl.textContent += e.data + '\n';
+      logsEl.scrollTop = logsEl.scrollHeight;
+
+      // Once browser opened prompt appears, show confirm button
+      if (e.data.includes('Press Enter') || e.data.includes('press Enter') || e.data.includes('logged in')) {
+        confirmBtn.style.display = 'flex';
+      }
+      if (e.data.includes('Session saved') || e.data.includes('saved to')) {
+        confirmBtn.style.display = 'none';
+        logsEl.textContent += '\n✓ Сесія збережена!\n';
+        checkSession();
+        toast('Авторизовано ✓');
+        setTimeout(() => document.getElementById('login-modal').classList.add('hidden'), 1500);
+        loginES.close(); loginES = null;
+      }
+      if (e.data.startsWith('__PROCESS_END__')) {
+        loginES.close(); loginES = null;
+        checkSession();
+      }
+    };
+
+    loginES.onerror = () => { loginES.close(); loginES = null; };
+
+    // Show confirm button after 3s (browser should be open by then)
+    setTimeout(() => { confirmBtn.style.display = 'flex'; }, 3000);
+  });
+
+  document.getElementById('confirm-login-btn').addEventListener('click', async () => {
+    if (!loginJobId) return;
+    const logsEl = document.getElementById('login-logs');
+    logsEl.textContent += 'Відправляємо Enter...\n';
+    await fetch('/api/confirm/' + loginJobId, { method: 'POST' });
+    logsEl.textContent += 'Зберігаємо сесію...\n';
+    document.getElementById('confirm-login-btn').style.display = 'none';
+  });
+
+  checkSession();
+
+  // ── Provider / Ollama model selector ────────────────────────────────────
+  const providerSel   = document.getElementById('provider');
+  const modelHidden   = document.getElementById('model');
+  const ollamaField   = document.getElementById('ollama-model-field');
+  const ollamaModelSel = document.getElementById('ollama-model');
+  const ollamaHint    = document.getElementById('ollama-hint');
+
+  async function loadOllamaModels() {
+    ollamaModelSel.innerHTML = '<option value="">Завантаження...</option>';
+    ollamaHint.textContent = '';
+    try {
+      const r = await fetch('/api/ollama-models');
+      const { available, models } = await r.json();
+      if (!available || !models.length) {
+        ollamaModelSel.innerHTML = '<option value="">Ollama не запущена</option>';
+        ollamaHint.textContent = 'Запусти: ollama serve';
+        modelHidden.value = 'ollama';
+        return;
+      }
+      ollamaModelSel.innerHTML = models
+        .map(m => `<option value="ollama:${m}">${m}</option>`)
+        .join('');
+      ollamaHint.textContent = `${models.length} модел${models.length === 1 ? 'ь' : 'і'} знайдено`;
+      modelHidden.value = ollamaModelSel.value;
+    } catch {
+      ollamaModelSel.innerHTML = '<option value="">Помилка підключення</option>';
+      ollamaHint.textContent = 'Перевір що ollama serve запущена';
+    }
+  }
+
+  function syncModel() {
+    const p = providerSel.value;
+    if (p === 'ollama') {
+      ollamaField.style.display = 'flex';
+      loadOllamaModels();
+    } else {
+      ollamaField.style.display = 'none';
+      modelHidden.value = p;
+    }
+  }
+
+  providerSel.addEventListener('change', syncModel);
+  ollamaModelSel.addEventListener('change', () => {
+    modelHidden.value = ollamaModelSel.value || 'ollama';
+  });
+  syncModel(); // init
+
+  // ── Tests list ───────────────────────────────────────────────────────────
+  let currentFile = null;
+  let currentQuestions = [];
+
+  async function loadTests() {
+    const r = await fetch('/api/questions');
+    const files = await r.json();
+
+    const statTotal = document.getElementById('stat-total');
+    const statQs = document.getElementById('stat-questions');
+    const list = document.getElementById('test-list');
+
+    statTotal.textContent = files.length;
+    statQs.textContent = files.reduce((a, f) => a + (f.count || 0), 0);
+
+    if (!files.length) {
+      list.innerHTML = `<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><p>Тестів ще немає</p></div>`;
+      return;
+    }
+
+    list.innerHTML = files.map(f => {
+      const dt = new Date(f.mtime).toLocaleDateString('uk-UA', { day:'2-digit', month:'short', year:'numeric' });
+      const label = f.name.replace(/\.json$/, '').replace(/_/g, ' ');
+      return `<div class="test-item">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="test-info">
+          <div class="test-name" title="${f.name}">${label}</div>
+          <div class="test-meta">${dt} &nbsp;·&nbsp; ${f.count} питань</div>
+        </div>
+        <div class="test-actions">
+          <span class="badge">${f.count}Q</span>
+          <button class="btn btn-secondary btn-sm" onclick="openEditor('${f.name}')">Редагувати</button>
+          <button class="btn btn-secondary btn-sm" onclick="runFromFile('${f.name}')">▶ Запустити</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteTest('${f.name}')">✕</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  async function deleteTest(name) {
+    if (!confirm(`Видалити ${name}?`)) return;
+    await fetch('/api/questions/' + encodeURIComponent(name), { method: 'DELETE' });
+    toast('Видалено');
+    loadTests();
+  }
+
+  async function runFromFile(name) {
+    navigate('create');
+    document.getElementById('loadQuestions').value = 'questions/' + name;
+    document.getElementById('cmd').value = 'create';
+    toast('Файл вставлено у форму → натисни Запустити');
+  }
+
+  // ── Editor ───────────────────────────────────────────────────────────────
+  async function openEditor(name) {
+    currentFile = name;
+    const r = await fetch('/api/questions/' + encodeURIComponent(name));
+    currentQuestions = await r.json();
+    document.getElementById('editor-title').textContent = name.replace(/\.json$/, '').replace(/_/g, ' ');
+    document.getElementById('nav-editor').style.display = 'flex';
+    renderEditor();
+    navigate('editor');
+  }
+
+  function renderEditor() {
+    const container = document.getElementById('questions-editor');
+    container.innerHTML = '';
+    currentQuestions.forEach((q, i) => container.appendChild(buildQBlock(q, i)));
+  }
+
+  function buildQBlock(q, idx) {
+    const wrap = document.createElement('div');
+    wrap.className = 'q-block';
+    wrap.dataset.idx = idx;
+
+    const typeClass = { single: 'q-type-single', multiple: 'q-type-multiple', text: 'q-type-text' }[q.type] || 'q-type-text';
+    const typeLabel = { single: 'Одна відповідь', multiple: 'Кілька відповідей', text: 'Текстова відповідь' }[q.type] || q.type;
+
+    wrap.innerHTML = `
+      <div class="q-header">
+        <div class="q-num">${idx + 1}</div>
+        <input class="q-text-input" value="${esc(q.question)}" data-field="question" placeholder="Текст питання" />
+        <span class="q-type-badge ${typeClass}">${typeLabel}</span>
+        <button class="del-q-btn" title="Видалити питання" onclick="deleteQuestion(${idx})">✕</button>
+      </div>
+      <div class="answers-list" id="answers-${idx}"></div>
+      <button class="add-answer-btn" onclick="addAnswer(${idx})">+ Додати відповідь</button>`;
+
+    const input = wrap.querySelector('.q-text-input');
+    input.addEventListener('input', e => { currentQuestions[idx].question = e.target.value; });
+
+    const ansContainer = wrap.querySelector(`#answers-${idx}`);
+    (q.answers || []).forEach((ans, ai) => ansContainer.appendChild(buildAnswerRow(q, idx, ans, ai)));
+
+    return wrap;
+  }
+
+  function buildAnswerRow(q, qi, ans, ai) {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+
+    const isMultiple = q.type === 'multiple';
+    const inputType = q.type === 'text' ? 'text' : (isMultiple ? 'checkbox' : 'radio');
+    const controlName = `q${qi}`;
+
+    const ctrl = document.createElement('input');
+    ctrl.type = inputType;
+    if (inputType !== 'text') {
+      ctrl.name = controlName;
+      ctrl.checked = !!ans.correct;
+      ctrl.addEventListener('change', e => {
+        if (isMultiple) {
+          currentQuestions[qi].answers[ai].correct = e.target.checked;
+        } else {
+          currentQuestions[qi].answers.forEach((a, i) => a.correct = i === ai);
+          // sync other radio visuals in same block
+          const block = document.querySelector(`.q-block[data-idx="${qi}"]`);
+          block.querySelectorAll('input[type="radio"]').forEach((r, ri) => r.checked = ri === ai);
+        }
+      });
+    }
+
+    const textInput = document.createElement('input');
+    textInput.type = 'text';
+    textInput.value = ans.text;
+    textInput.placeholder = 'Текст відповіді';
+    textInput.addEventListener('input', e => { currentQuestions[qi].answers[ai].text = e.target.value; });
+
+    const delBtn = document.createElement('button');
+    delBtn.className = 'del-ans';
+    delBtn.innerHTML = '✕';
+    delBtn.title = 'Видалити відповідь';
+    delBtn.addEventListener('click', () => {
+      currentQuestions[qi].answers.splice(ai, 1);
+      const block = document.querySelector(`.q-block[data-idx="${qi}"]`);
+      const ansContainer = block.querySelector(`#answers-${qi}`);
+      ansContainer.removeChild(row);
+      // reindex remaining rows — simplest: full re-render of answers
+      const q2 = currentQuestions[qi];
+      ansContainer.innerHTML = '';
+      (q2.answers || []).forEach((a, aidx) => ansContainer.appendChild(buildAnswerRow(q2, qi, a, aidx)));
+    });
+
+    if (inputType !== 'text') row.appendChild(ctrl);
+    row.appendChild(textInput);
+    row.appendChild(delBtn);
+    return row;
+  }
+
+  function addAnswer(qi) {
+    const q = currentQuestions[qi];
+    const newAns = { text: '', correct: false };
+    q.answers.push(newAns);
+    const ai = q.answers.length - 1;
+    const block = document.querySelector(`.q-block[data-idx="${qi}"]`);
+    const ansContainer = block.querySelector(`#answers-${qi}`);
+    ansContainer.appendChild(buildAnswerRow(q, qi, newAns, ai));
+  }
+
+  function deleteQuestion(idx) {
+    if (!confirm('Видалити питання?')) return;
+    currentQuestions.splice(idx, 1);
+    renderEditor();
+  }
+
+  document.getElementById('add-q-btn').addEventListener('click', () => {
+    currentQuestions.push({
+      type: 'single',
+      question: '',
+      answers: [
+        { text: '', correct: true },
+        { text: '', correct: false },
+        { text: '', correct: false },
+        { text: '', correct: false },
+      ]
+    });
+    renderEditor();
+    const container = document.getElementById('questions-editor');
+    container.lastChild.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('save-btn').addEventListener('click', async () => {
+    if (!currentFile) return;
+    const r = await fetch('/api/questions/' + encodeURIComponent(currentFile), {
+      method: 'PUT',
+      headers: {'content-type':'application/json'},
+      body: JSON.stringify(currentQuestions),
+    });
+    if (r.ok) {
+      toast('Збережено ✓');
+      loadTests();
+    } else {
+      toast('Помилка збереження', true);
+    }
+  });
+
+  document.getElementById('back-to-tests').addEventListener('click', () => {
+    navigate('tests');
+    loadTests();
+  });
+
+  // ── Import Modal ─────────────────────────────────────────────────────────
+  function openImportModal() {
+    document.getElementById('import-modal').classList.remove('hidden');
+    document.getElementById('import-name').value = '';
+    document.getElementById('import-text').value = '';
+    document.getElementById('import-file').value = '';
+  }
+  document.getElementById('import-btn-dash').addEventListener('click', openImportModal);
+  document.getElementById('import-btn-list').addEventListener('click', openImportModal);
+  document.getElementById('import-cancel').addEventListener('click', () =>
+    document.getElementById('import-modal').classList.add('hidden'));
+
+  document.getElementById('import-file').addEventListener('change', async e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    document.getElementById('import-name').value = file.name.replace(/\.json$/,'');
+    document.getElementById('import-text').value = await file.text();
+  });
+
+  document.getElementById('import-confirm').addEventListener('click', async () => {
+    const name = document.getElementById('import-name').value.trim();
+    const raw = document.getElementById('import-text').value.trim();
+    if (!name) { toast('Вкажи назву', true); return; }
+    let questions;
+    try { questions = JSON.parse(raw); } catch { toast('Невалідний JSON', true); return; }
+    if (!Array.isArray(questions)) { toast('Очікується масив питань', true); return; }
+    const r = await fetch('/api/questions/import', {
+      method: 'POST',
+      headers: {'content-type':'application/json'},
+      body: JSON.stringify({ name, questions }),
+    });
+    if (r.ok) {
+      document.getElementById('import-modal').classList.add('hidden');
+      toast('Імпортовано ✓');
+      loadTests();
+      navigate('tests');
+    } else {
+      toast('Помилка імпорту', true);
+    }
+  });
+
+  // ── Run / Logs ───────────────────────────────────────────────────────────
+  let currentES = null;
+
+  document.getElementById('run-btn').addEventListener('click', async () => {
+    const title = document.getElementById('title').value.trim();
+    if (!title) { toast('Вкажи назву тесту', true); return; }
+
+    const body = {
+      cmd:           document.getElementById('cmd').value,
+      prompt:        document.getElementById('prompt').value,
+      source:        document.getElementById('source').value,
+      title,
+      count:         document.getElementById('count').value,
+      model:         document.getElementById('model').value,
+      loadQuestions: document.getElementById('loadQuestions').value,
+      url:           document.getElementById('url').value,
+      autoConfirm:   document.getElementById('autoConfirm').checked,
+      openUrl:       document.getElementById('openUrl').checked,
+    };
+
+    const logsBox  = document.getElementById('logs-box');
+    const phaseRow = document.getElementById('phase-row');
+    const runBtn   = document.getElementById('run-btn');
+    const stopBtn  = document.getElementById('stop-btn');
+    const result   = document.getElementById('run-result');
+    const phaseGen = document.getElementById('phase-gen');
+    const phaseCr  = document.getElementById('phase-create');
+
+    logsBox.style.display = 'block';
+    logsBox.innerHTML = '';
+    phaseRow.style.display = 'flex';
+    phaseGen.className = 'phase-pill';
+    phaseCr.className  = 'phase-pill';
+    result.innerHTML   = '';
+    runBtn.style.display  = 'none';
+    stopBtn.style.display = 'inline-flex';
+
+    const appendLog = (text, cls = '') => {
+      const span = document.createElement('span');
+      span.className = 'log-line' + (cls ? ' ' + cls : '');
+      span.textContent = text;
+      logsBox.appendChild(span);
+      logsBox.scrollTop = logsBox.scrollHeight;
+    };
+
+    let resp;
+    try {
+      resp = await fetch('/api/run', {
+        method: 'POST',
+        headers: {'content-type':'application/json'},
+        body: JSON.stringify(body),
+      });
+    } catch {
+      appendLog('Помилка підключення до сервера', 'err');
+      runBtn.style.display = 'inline-flex';
+      stopBtn.style.display = 'none';
+      return;
+    }
+
+    if (!resp.ok) {
+      appendLog('Error: ' + await resp.text(), 'err');
+      runBtn.style.display = 'inline-flex';
+      stopBtn.style.display = 'none';
+      return;
+    }
+
+    const { id } = await resp.json();
+    phaseGen.classList.add('active');
+    appendLog(`Запущено задачу id=${id}`);
+
+    if (currentES) currentES.close();
+    const es = new EventSource('/api/stream/' + id);
+    currentES = es;
+
+    es.onmessage = e => {
+      const data = e.data;
+      if (data.startsWith('PHASE:')) {
+        const txt = data.replace('PHASE:','').trim();
+        if (txt.startsWith('generate')) {
+          phaseGen.classList.add('active');
+          appendLog('▶ Фаза: Генерація', 'saved');
+        }
+        if (txt.startsWith('create')) {
+          phaseGen.classList.remove('active');
+          phaseGen.classList.add('done');
+          phaseCr.classList.add('active');
+          appendLog('▶ Фаза: Заповнення', 'saved');
+        }
+        return;
+      }
+      if (data.startsWith('SAVED_FILE:')) {
+        const file = data.replace('SAVED_FILE:','').trim();
+        const a = document.createElement('a');
+        a.href = '/' + file;
+        a.download = file.split('/').pop();
+        a.className = 'btn btn-secondary btn-sm';
+        a.innerHTML = '⬇ Завантажити ' + file.split('/').pop();
+        result.appendChild(a);
+        const editBtn = document.createElement('button');
+        editBtn.className = 'btn btn-primary btn-sm';
+        editBtn.textContent = '✎ Редагувати';
+        editBtn.addEventListener('click', () => openEditor(file.split('/').pop()));
+        result.appendChild(editBtn);
+        loadTests();
+        return;
+      }
+      if (data.startsWith('OPEN_URL:')) {
+        const url = data.replace('OPEN_URL:','').trim();
+        const btn = document.createElement('a');
+        btn.href = url; btn.target = '_blank';
+        btn.className = 'btn btn-secondary btn-sm';
+        btn.textContent = '🔗 Відкрити редактор';
+        result.appendChild(btn);
+        if (document.getElementById('openUrl').checked) window.open(url, '_blank');
+        return;
+      }
+      if (data.startsWith('__PROCESS_END__')) {
+        const ok = data.includes('exit=0');
+        phaseGen.classList.remove('active');
+        phaseCr.classList.remove('active');
+        if (ok) { phaseGen.classList.add('done'); phaseCr.classList.add('done'); }
+        appendLog(ok ? '✓ Завершено успішно' : '✗ Завершено з помилками', ok ? 'done' : 'err');
+        es.close(); currentES = null;
+        runBtn.style.display  = 'inline-flex';
+        stopBtn.style.display = 'none';
+        return;
+      }
+      const isErr = data.toLowerCase().startsWith('error');
+      appendLog(data, isErr ? 'err' : '');
+    };
+
+    es.onerror = () => {
+      appendLog('Потік закрито', 'err');
+      es.close(); currentES = null;
+      runBtn.style.display  = 'inline-flex';
+      stopBtn.style.display = 'none';
+    };
+  });
+
+  document.getElementById('stop-btn').addEventListener('click', () => {
+    if (currentES) { currentES.close(); currentES = null; }
+    document.getElementById('run-btn').style.display  = 'inline-flex';
+    document.getElementById('stop-btn').style.display = 'none';
+    const logsBox = document.getElementById('logs-box');
+    const span = document.createElement('span');
+    span.className = 'log-line err';
+    span.textContent = '— Зупинено користувачем';
+    logsBox.appendChild(span);
+  });
+
+  // ── Helpers ──────────────────────────────────────────────────────────────
+  function esc(s) {
+    return String(s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // ── Init ─────────────────────────────────────────────────────────────────
+  loadTests();
+  // Reload when navigating to tests page
+  navLinks.forEach(a => {
+    if (a.dataset.page === 'tests') a.addEventListener('click', loadTests);
+    if (a.dataset.page === 'dashboard') a.addEventListener('click', loadTests);
+  });
+</script>
+</body>
 </html>

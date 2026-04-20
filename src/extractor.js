@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 
 // Detect source type
-function detectSourceType(source) {
+export function detectSourceType(source) {
   if (source.startsWith('http://') || source.startsWith('https://')) return 'url';
   const ext = path.extname(source).toLowerCase();
   if (ext === '.pdf') return 'pdf';

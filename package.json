@@ -7,7 +7,9 @@
   "scripts": {
     "login": "node src/index.js login",
     "create": "node src/index.js create",
-    "start-ui": "node server.js"
+    "start-ui": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "test:watch": "node --test --watch tests/*.test.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.36.3",

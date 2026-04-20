@@ -1,0 +1,336 @@
+[
+  {
+    "type": "single",
+    "question": "Який символ використовується для створення кортежу в Python?",
+    "answers": [
+      {
+        "text": "Круглі дужки ( )",
+        "correct": true
+      },
+      {
+        "text": "Квадратні дужки [ ]",
+        "correct": false
+      },
+      {
+        "text": "Фігурні дужки { }",
+        "correct": false
+      },
+      {
+        "text": "Кутові дужки < >",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке значення поверне вираз len((1, 2, 3, 4, 5))?",
+    "answers": [
+      {
+        "text": "5",
+        "correct": true
+      },
+      {
+        "text": "4",
+        "correct": false
+      },
+      {
+        "text": "6",
+        "correct": false
+      },
+      {
+        "text": "Виникне помилка",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як правильно створити кортеж з одного елемента в Python?",
+    "answers": [
+      {
+        "text": "(5,)",
+        "correct": true
+      },
+      {
+        "text": "(5)",
+        "correct": false
+      },
+      {
+        "text": "[5]",
+        "correct": false
+      },
+      {
+        "text": "{5}",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що відбудеться, якщо спробувати змінити елемент кортежу: t = (1, 2, 3); t[0] = 10?",
+    "answers": [
+      {
+        "text": "Виникне TypeError",
+        "correct": true
+      },
+      {
+        "text": "Елемент успішно зміниться",
+        "correct": false
+      },
+      {
+        "text": "Виникне IndexError",
+        "correct": false
+      },
+      {
+        "text": "Виникне ValueError",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який результат виконання коду: t = (10, 20, 30); print(t[1])?",
+    "answers": [
+      {
+        "text": "20",
+        "correct": true
+      },
+      {
+        "text": "10",
+        "correct": false
+      },
+      {
+        "text": "30",
+        "correct": false
+      },
+      {
+        "text": "Виникне помилка",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який результат виконання коду: t = (1, 2, 3, 4, 5); print(t[-1])?",
+    "answers": [
+      {
+        "text": "5",
+        "correct": true
+      },
+      {
+        "text": "1",
+        "correct": false
+      },
+      {
+        "text": "-1",
+        "correct": false
+      },
+      {
+        "text": "Виникне IndexError",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який результат виконання коду: t = (1, 2, 3); print(t * 2)?",
+    "answers": [
+      {
+        "text": "(1, 2, 3, 1, 2, 3)",
+        "correct": true
+      },
+      {
+        "text": "(2, 4, 6)",
+        "correct": false
+      },
+      {
+        "text": "((1, 2, 3), (1, 2, 3))",
+        "correct": false
+      },
+      {
+        "text": "Виникне TypeError",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод кортежу повертає кількість входжень певного елемента?",
+    "answers": [
+      {
+        "text": "count()",
+        "correct": true
+      },
+      {
+        "text": "find()",
+        "correct": false
+      },
+      {
+        "text": "search()",
+        "correct": false
+      },
+      {
+        "text": "get()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених виразів створюють коректний кортеж у Python?",
+    "answers": [
+      {
+        "text": "t = (1, 2, 3)",
+        "correct": true
+      },
+      {
+        "text": "t = 1, 2, 3",
+        "correct": true
+      },
+      {
+        "text": "t = tuple([1, 2, 3])",
+        "correct": true
+      },
+      {
+        "text": "t = [1, 2, 3]",
+        "correct": false
+      },
+      {
+        "text": "t = {1, 2, 3}",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які операції можна виконувати з кортежами в Python?",
+    "answers": [
+      {
+        "text": "Конкатенація двох кортежів за допомогою +",
+        "correct": true
+      },
+      {
+        "text": "Отримання зрізу (slice)",
+        "correct": true
+      },
+      {
+        "text": "Перевірка належності елемента за допомогою in",
+        "correct": true
+      },
+      {
+        "text": "Додавання нового елемента методом append()",
+        "correct": false
+      },
+      {
+        "text": "Видалення елемента методом remove()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з тверджень про кортежі в Python є правильними?",
+    "answers": [
+      {
+        "text": "Кортежі є незмінними (immutable)",
+        "correct": true
+      },
+      {
+        "text": "Кортежі можуть містити елементи різних типів даних",
+        "correct": true
+      },
+      {
+        "text": "Кортежі підтримують індексацію",
+        "correct": true
+      },
+      {
+        "text": "Кортежі є змінними (mutable)",
+        "correct": false
+      },
+      {
+        "text": "Кортежі не можуть бути вкладеними",
+        "correct": false
+      },
+      {
+        "text": "Кортежі завжди повільніші за списки",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Що поверне метод index() у кортежі?",
+    "answers": [
+      {
+        "text": "Індекс першого входження вказаного елемента",
+        "correct": true
+      },
+      {
+        "text": "Ціле число",
+        "correct": true
+      },
+      {
+        "text": "Список усіх індексів елемента",
+        "correct": false
+      },
+      {
+        "text": "Кількість входжень елемента",
+        "correct": false
+      },
+      {
+        "text": "Булеве значення",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених прикладів демонструють коректне розпакування кортежу?",
+    "answers": [
+      {
+        "text": "a, b, c = (1, 2, 3)",
+        "correct": true
+      },
+      {
+        "text": "a, *b = (1, 2, 3, 4)",
+        "correct": true
+      },
+      {
+        "text": "a, b = (1, 2, 3)",
+        "correct": false
+      },
+      {
+        "text": "a = (1, 2, 3)",
+        "correct": false
+      },
+      {
+        "text": "(a, b, c) = [1, 2, 3]",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Запишіть назву вбудованої функції Python, яка перетворює список на кортеж.",
+    "answers": [
+      {
+        "text": "tuple",
+        "correct": true
+      },
+      {
+        "text": "tuple()",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Кортеж t = (3, 7, 3, 1, 3). Яке значення поверне вираз t.count(3)?",
+    "answers": [
+      {
+        "text": "3",
+        "correct": true
+      }
+    ]
+  }
+]

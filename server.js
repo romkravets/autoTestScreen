@@ -3,6 +3,7 @@ import { spawn } from "node:child_process";
 import { randomBytes } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import fs from "node:fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,10 +23,10 @@ function makeId() {
 app.post("/api/run", (req, res) => {
   const body = req.body || {};
   const action = (body.cmd || "generate").toString();
-  if (!["generate", "create", "generate_and_create"].includes(action)) {
+  if (!["generate", "create", "generate_and_create", "login"].includes(action)) {
     return res
       .status(400)
-      .json({ error: "cmd must be generate, create or generate_and_create" });
+      .json({ error: "cmd must be generate, create, generate_and_create or login" });
   }
 
   const id = makeId();
@@ -97,7 +98,9 @@ app.post("/api/run", (req, res) => {
 
   (async () => {
     try {
-      if (action === "generate") {
+      if (action === "login") {
+        spawnProcess(["src/index.js", "login"]);
+      } else if (action === "generate") {
         // spawn single generate
         const args = ["src/index.js", "generate"];
         const genAllowed = [
@@ -294,6 +297,114 @@ app.get("/api/stream/:id", (req, res) => {
   req.on("close", () => {
     run.clients.delete(res);
   });
+});
+
+// ── Questions CRUD ────────────────────────────────────────────────────────────
+
+const QUESTIONS_DIR = path.join(__dirname, "questions");
+
+app.get("/api/questions", (_req, res) => {
+  if (!fs.existsSync(QUESTIONS_DIR)) return res.json([]);
+  const files = fs
+    .readdirSync(QUESTIONS_DIR)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => {
+      const stat = fs.statSync(path.join(QUESTIONS_DIR, f));
+      try {
+        const data = JSON.parse(
+          fs.readFileSync(path.join(QUESTIONS_DIR, f), "utf8")
+        );
+        return { name: f, size: stat.size, mtime: stat.mtime, count: Array.isArray(data) ? data.length : 0 };
+      } catch {
+        return { name: f, size: stat.size, mtime: stat.mtime, count: 0 };
+      }
+    })
+    .sort((a, b) => new Date(b.mtime) - new Date(a.mtime));
+  res.json(files);
+});
+
+app.get("/api/questions/:filename", (req, res) => {
+  const filename = path.basename(req.params.filename);
+  const file = path.join(QUESTIONS_DIR, filename);
+  if (!fs.existsSync(file)) return res.status(404).json({ error: "Not found" });
+  try {
+    res.json(JSON.parse(fs.readFileSync(file, "utf8")));
+  } catch {
+    res.status(500).json({ error: "Invalid JSON" });
+  }
+});
+
+app.put("/api/questions/:filename", (req, res) => {
+  const filename = path.basename(req.params.filename);
+  const file = path.join(QUESTIONS_DIR, filename);
+  if (!fs.existsSync(file)) return res.status(404).json({ error: "Not found" });
+  if (!Array.isArray(req.body)) return res.status(400).json({ error: "Body must be array" });
+  fs.writeFileSync(file, JSON.stringify(req.body, null, 2), "utf8");
+  res.json({ ok: true });
+});
+
+app.delete("/api/questions/:filename", (req, res) => {
+  const filename = path.basename(req.params.filename);
+  const file = path.join(QUESTIONS_DIR, filename);
+  if (!fs.existsSync(file)) return res.status(404).json({ error: "Not found" });
+  fs.unlinkSync(file);
+  res.json({ ok: true });
+});
+
+app.post("/api/questions/import", (req, res) => {
+  const { name, questions } = req.body || {};
+  if (!name || !Array.isArray(questions))
+    return res.status(400).json({ error: "name and questions[] required" });
+  if (!fs.existsSync(QUESTIONS_DIR)) fs.mkdirSync(QUESTIONS_DIR);
+  const safe = name
+    .replace(/[^a-zA-Zа-яА-ЯіІїЇєЄ0-9_\-\.]/g, "_")
+    .slice(0, 60);
+  const filename = `${safe}.json`;
+  fs.writeFileSync(
+    path.join(QUESTIONS_DIR, filename),
+    JSON.stringify(questions, null, 2),
+    "utf8"
+  );
+  res.json({ ok: true, filename });
+});
+
+// ── Confirm (send Enter to a running process stdin) ───────────────────────────
+
+app.post("/api/confirm/:id", (req, res) => {
+  const run = runs.get(req.params.id);
+  if (!run) return res.status(404).json({ error: "Not found" });
+  for (const proc of run.procs) {
+    try { proc.stdin.write("\n"); } catch (e) {}
+  }
+  res.json({ ok: true });
+});
+
+// ── Ollama local models ───────────────────────────────────────────────────────
+
+app.get("/api/ollama-models", async (_req, res) => {
+  const base = process.env.OLLAMA_BASE_URL
+    ? process.env.OLLAMA_BASE_URL.replace(/\/v1$/, "")
+    : "http://localhost:11434";
+  try {
+    const r = await fetch(`${base}/api/tags`, { signal: AbortSignal.timeout(3000) });
+    if (!r.ok) return res.json({ available: false, models: [] });
+    const data = await r.json();
+    const models = (data.models || []).map((m) => m.name);
+    res.json({ available: true, models });
+  } catch {
+    res.json({ available: false, models: [] });
+  }
+});
+
+// ── Session status ────────────────────────────────────────────────────────────
+
+app.get("/api/session-status", (_req, res) => {
+  const sessionFile = path.join(__dirname, "sessions", "vseosvita.json");
+  const exists = fs.existsSync(sessionFile);
+  if (!exists) return res.json({ hasSession: false });
+  const stat = fs.statSync(sessionFile);
+  const ageDays = Math.floor((Date.now() - stat.mtimeMs) / 86400000);
+  res.json({ hasSession: true, ageDays, mtime: stat.mtime });
 });
 
 const PORT = process.env.PORT_UI || 5173;
