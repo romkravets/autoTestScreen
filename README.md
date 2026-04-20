@@ -3,6 +3,8 @@
 Автоматична генерація тестів для [vseosvita.ua](https://vseosvita.ua) через AI + Playwright.  
 Вказуєш тему або джерело (URL / PDF / DOCX) — скрипт генерує питання і автоматично заповнює конструктор тестів на сайті.
 
+<img src="assets/write.png" width="800" alt="" />
+
 ---
 
 ## Що таке Node.js і npm — коротко
@@ -23,12 +25,12 @@
 
 **Основні команди npm:**
 
-| Команда | Що робить |
-|---------|-----------|
-| `npm install` | Встановити всі залежності з `package.json` |
-| `npm run <назва>` | Запустити скрипт, описаний у `package.json → scripts` |
-| `npm install <пакет>` | Додати новий пакет |
-| `npm test` | Запустити тести (скорочення від `npm run test`) |
+| Команда               | Що робить                                             |
+| --------------------- | ----------------------------------------------------- |
+| `npm install`         | Встановити всі залежності з `package.json`            |
+| `npm run <назва>`     | Запустити скрипт, описаний у `package.json → scripts` |
+| `npm install <пакет>` | Додати новий пакет                                    |
+| `npm test`            | Запустити тести (скорочення від `npm run test`)       |
 
 **`package.json`** — серце проєкту. Містить назву, версію, список залежностей і скрипти запуску.
 
@@ -40,6 +42,7 @@
 - **npm** — встановлюється разом з Node.js автоматично
 
 Перевірити версію:
+
 ```bash
 node --version   # v20.x.x або вище
 npm --version    # 10.x.x
@@ -92,12 +95,12 @@ DEFAULT_QUESTION_COUNT=22
 
 ### Де отримати безкоштовні ключі
 
-| Провайдер | Сайт | Примітка |
-|-----------|------|----------|
-| **Groq** | [console.groq.com](https://console.groq.com) → API Keys | Швидко, безкоштовно |
-| **OpenRouter** | [openrouter.ai](https://openrouter.ai) → Keys | Моделі з суфіксом `:free` — безкоштовно |
-| **Ollama** | [ollama.com](https://ollama.com) | Локально, ключ не потрібен: `ollama pull llama3.2` |
-| **LM Studio** | [lmstudio.ai](https://lmstudio.ai) | Локально, запусти Local Server |
+| Провайдер      | Сайт                                                    | Примітка                                           |
+| -------------- | ------------------------------------------------------- | -------------------------------------------------- |
+| **Groq**       | [console.groq.com](https://console.groq.com) → API Keys | Швидко, безкоштовно                                |
+| **OpenRouter** | [openrouter.ai](https://openrouter.ai) → Keys           | Моделі з суфіксом `:free` — безкоштовно            |
+| **Ollama**     | [ollama.com](https://ollama.com)                        | Локально, ключ не потрібен: `ollama pull llama3.2` |
+| **LM Studio**  | [lmstudio.ai](https://lmstudio.ai)                      | Локально, запусти Local Server                     |
 
 ---
 
@@ -110,6 +113,7 @@ npm run start-ui
 Відкрий браузер: **http://localhost:5173**
 
 Веб-інтерфейс дозволяє:
+
 - Генерувати тести через форму
 - Переглядати список збережених тестів
 - **Редагувати питання прямо в браузері** і зберігати
@@ -125,6 +129,7 @@ npm run start-ui
 Перед використанням команди `create` потрібно залогінитись на vseosvita.ua.
 
 **Через UI:**
+
 1. Відкрий http://localhost:5173
 2. Натисни **«Увійти»** у лівому нижньому куті
 3. У модальному вікні натисни **«Відкрити браузер»**
@@ -132,6 +137,7 @@ npm run start-ui
 5. Натисни **«Я залогінився — зберегти сесію»**
 
 **Через термінал:**
+
 ```bash
 npm run login
 # Відкриється браузер → залогінься → натисни Enter у терміналі
@@ -199,17 +205,17 @@ node src/index.js create \
 
 ## Всі параметри CLI
 
-| Параметр | Команди | Опис | За замовч. |
-|----------|---------|------|-----------|
-| `-p, --prompt` | generate, create | Довільна тема | — |
-| `-s, --source` | generate, create | URL, PDF або DOCX | — |
-| `-t, --title` | generate, create | Назва тесту (**обов'язково**) | — |
-| `-c, --count` | generate, create | Кількість питань | `22` |
-| `-m, --model` | generate, create | Провайдер та модель | `claude` |
-| `--save-questions` | generate, create | Зберегти у вказаний файл | автофайл |
-| `--load-questions` | create | Завантажити питання з JSON | — |
-| `--url` | create | URL існуючого тесту в редакторі | — |
-| `--headless` | create | Браузер у фоні (без вікна) | `false` |
+| Параметр           | Команди          | Опис                            | За замовч. |
+| ------------------ | ---------------- | ------------------------------- | ---------- |
+| `-p, --prompt`     | generate, create | Довільна тема                   | —          |
+| `-s, --source`     | generate, create | URL, PDF або DOCX               | —          |
+| `-t, --title`      | generate, create | Назва тесту (**обов'язково**)   | —          |
+| `-c, --count`      | generate, create | Кількість питань                | `22`       |
+| `-m, --model`      | generate, create | Провайдер та модель             | `claude`   |
+| `--save-questions` | generate, create | Зберегти у вказаний файл        | автофайл   |
+| `--load-questions` | create           | Завантажити питання з JSON      | —          |
+| `--url`            | create           | URL існуючого тесту в редакторі | —          |
+| `--headless`       | create           | Браузер у фоні (без вікна)      | `false`    |
 
 > Одне з `--prompt`, `--source` або `--load-questions` обов'язкове.
 
@@ -217,14 +223,14 @@ node src/index.js create \
 
 ## Провайдери AI
 
-| Провайдер | `--model` | Безкоштовно | Потрібен ключ |
-|-----------|-----------|-------------|---------------|
-| Anthropic Claude | `claude` | платно | `ANTHROPIC_API_KEY` |
-| Groq | `groq` | так | `GROQ_API_KEY` |
-| OpenRouter | `openrouter` | є безкоштовні | `OPENROUTER_API_KEY` |
-| Ollama (локально) | `ollama` | так | не потрібен |
-| LM Studio (локально) | `lmstudio` | так | не потрібен |
-| Кастомний ендпоінт | `custom` | — | `CUSTOM_API_KEY` |
+| Провайдер            | `--model`    | Безкоштовно   | Потрібен ключ        |
+| -------------------- | ------------ | ------------- | -------------------- |
+| Anthropic Claude     | `claude`     | платно        | `ANTHROPIC_API_KEY`  |
+| Groq                 | `groq`       | так           | `GROQ_API_KEY`       |
+| OpenRouter           | `openrouter` | є безкоштовні | `OPENROUTER_API_KEY` |
+| Ollama (локально)    | `ollama`     | так           | не потрібен          |
+| LM Studio (локально) | `lmstudio`   | так           | не потрібен          |
+| Кастомний ендпоінт   | `custom`     | —             | `CUSTOM_API_KEY`     |
 
 **Формат:** `provider` або `provider:model-id`
 
@@ -244,11 +250,11 @@ node src/index.js create \
 
 Генеруються автоматично у пропорції ~50 / 30 / 20:
 
-| Тип | Опис |
-|-----|------|
-| `single` | Одна правильна відповідь (4 варіанти) |
+| Тип        | Опис                                         |
+| ---------- | -------------------------------------------- |
+| `single`   | Одна правильна відповідь (4 варіанти)        |
 | `multiple` | Кілька правильних відповідей (5–6 варіантів) |
-| `text` | Поле для вводу відповіді |
+| `text`     | Поле для вводу відповіді                     |
 
 ---
 
