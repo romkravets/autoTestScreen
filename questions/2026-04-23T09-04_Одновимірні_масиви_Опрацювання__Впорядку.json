@@ -1,0 +1,552 @@
+[
+  {
+    "type": "single",
+    "question": "Що таке одновимірний масив у програмуванні?",
+    "answers": [
+      {
+        "text": "Впорядкована послідовність елементів одного типу, що зберігаються під одним іменем",
+        "correct": true
+      },
+      {
+        "text": "Набір змінних різних типів, об'єднаних в одну структуру",
+        "correct": false
+      },
+      {
+        "text": "Функція, що повертає кілька значень",
+        "correct": false
+      },
+      {
+        "text": "Рядок символів фіксованої довжини",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який індекс має перший елемент масиву (списку) у Python?",
+    "answers": [
+      {
+        "text": "0",
+        "correct": true
+      },
+      {
+        "text": "1",
+        "correct": false
+      },
+      {
+        "text": "-1",
+        "correct": false
+      },
+      {
+        "text": "Залежить від оголошення масиву",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як у Python створити список із п'яти нулів?",
+    "answers": [
+      {
+        "text": "a = [0] * 5",
+        "correct": true
+      },
+      {
+        "text": "a = [0, 5]",
+        "correct": false
+      },
+      {
+        "text": "a = list(5)",
+        "correct": false
+      },
+      {
+        "text": "a = zeros(5)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка функція Python повертає кількість елементів у списку?",
+    "answers": [
+      {
+        "text": "len()",
+        "correct": true
+      },
+      {
+        "text": "count()",
+        "correct": false
+      },
+      {
+        "text": "size()",
+        "correct": false
+      },
+      {
+        "text": "num()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод додає елемент у кінець списку в Python?",
+    "answers": [
+      {
+        "text": "append()",
+        "correct": true
+      },
+      {
+        "text": "add()",
+        "correct": false
+      },
+      {
+        "text": "insert()",
+        "correct": false
+      },
+      {
+        "text": "push()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яким оператором виконується перебір усіх елементів списку в Python?",
+    "answers": [
+      {
+        "text": "for",
+        "correct": true
+      },
+      {
+        "text": "while",
+        "correct": false
+      },
+      {
+        "text": "do",
+        "correct": false
+      },
+      {
+        "text": "repeat",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яке значення поверне вираз a[-1], якщо a = [10, 20, 30, 40]?",
+    "answers": [
+      {
+        "text": "40",
+        "correct": true
+      },
+      {
+        "text": "10",
+        "correct": false
+      },
+      {
+        "text": "Помилку виконання",
+        "correct": false
+      },
+      {
+        "text": "30",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Який метод сортує список у Python за зростанням без повернення нового списку?",
+    "answers": [
+      {
+        "text": "sort()",
+        "correct": true
+      },
+      {
+        "text": "sorted()",
+        "correct": false
+      },
+      {
+        "text": "order()",
+        "correct": false
+      },
+      {
+        "text": "arrange()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка складність алгоритму сортування методом бульбашки у найгіршому випадку?",
+    "answers": [
+      {
+        "text": "O(n²)",
+        "correct": true
+      },
+      {
+        "text": "O(n)",
+        "correct": false
+      },
+      {
+        "text": "O(n·log n)",
+        "correct": false
+      },
+      {
+        "text": "O(1)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Скільки порівнянь виконує алгоритм лінійного пошуку у найгіршому випадку для масиву з n елементів?",
+    "answers": [
+      {
+        "text": "n",
+        "correct": true
+      },
+      {
+        "text": "n²",
+        "correct": false
+      },
+      {
+        "text": "log₂n",
+        "correct": false
+      },
+      {
+        "text": "n/2",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Яка нотація використовується для опису складності алгоритму?",
+    "answers": [
+      {
+        "text": "Нотація «О велике» (Big O)",
+        "correct": true
+      },
+      {
+        "text": "Нотація «S мале»",
+        "correct": false
+      },
+      {
+        "text": "Нотація «Дельта»",
+        "correct": false
+      },
+      {
+        "text": "Нотація «Сигма»",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Що відбувається під час одного проходу алгоритму сортування вставками?",
+    "answers": [
+      {
+        "text": "Черговий елемент вставляється на правильне місце серед уже відсортованих елементів",
+        "correct": true
+      },
+      {
+        "text": "Два сусідні елементи міняються місцями, якщо попередній більший за наступний",
+        "correct": false
+      },
+      {
+        "text": "Знаходиться мінімальний елемент і переміщується на початок",
+        "correct": false
+      },
+      {
+        "text": "Масив ділиться на дві рівні частини",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "question": "Як у Python отримати зріз (підсписок) з елементів із індексами від 1 до 3 включно зі списку a?",
+    "answers": [
+      {
+        "text": "a[1:4]",
+        "correct": true
+      },
+      {
+        "text": "a[1:3]",
+        "correct": false
+      },
+      {
+        "text": "a(1, 3)",
+        "correct": false
+      },
+      {
+        "text": "a[1..3]",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених операцій можна виконувати з одновимірним масивом (списком) у Python?",
+    "answers": [
+      {
+        "text": "Визначення мінімального та максимального елементів",
+        "correct": true
+      },
+      {
+        "text": "Сортування елементів",
+        "correct": true
+      },
+      {
+        "text": "Пошук елемента за значенням",
+        "correct": true
+      },
+      {
+        "text": "Автоматичне форматування тексту",
+        "correct": false
+      },
+      {
+        "text": "Малювання геометричних фігур",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які методи або функції Python можна використати для визначення найбільшого елемента списку?",
+    "answers": [
+      {
+        "text": "max()",
+        "correct": true
+      },
+      {
+        "text": "Перебір усіх елементів із порівнянням через цикл for",
+        "correct": true
+      },
+      {
+        "text": "min()",
+        "correct": false
+      },
+      {
+        "text": "sum()",
+        "correct": false
+      },
+      {
+        "text": "len()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які алгоритми впорядкування масивів розглядаються у підручнику Ривкінда 9 клас?",
+    "answers": [
+      {
+        "text": "Сортування методом бульбашки",
+        "correct": true
+      },
+      {
+        "text": "Сортування вставками",
+        "correct": true
+      },
+      {
+        "text": "Сортування вибором",
+        "correct": true
+      },
+      {
+        "text": "Сортування злиттям",
+        "correct": false
+      },
+      {
+        "text": "Швидке сортування (quicksort)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які твердження про складність алгоритму є правильними?",
+    "answers": [
+      {
+        "text": "Складність алгоритму описує, як змінюється час виконання залежно від розміру вхідних даних",
+        "correct": true
+      },
+      {
+        "text": "O(1) означає сталу складність, що не залежить від розміру даних",
+        "correct": true
+      },
+      {
+        "text": "Алгоритм зі складністю O(n²) завжди швидший за алгоритм зі складністю O(n)",
+        "correct": false
+      },
+      {
+        "text": "Складність алгоритму вимірюється лише в секундах",
+        "correct": false
+      },
+      {
+        "text": "O(n log n) є кращою складністю, ніж O(n²)",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених виразів є коректними способами створення списку в Python?",
+    "answers": [
+      {
+        "text": "a = [1, 2, 3, 4, 5]",
+        "correct": true
+      },
+      {
+        "text": "a = list(range(1, 6))",
+        "correct": true
+      },
+      {
+        "text": "a = [i for i in range(1, 6)]",
+        "correct": true
+      },
+      {
+        "text": "a = array{1, 2, 3, 4, 5}",
+        "correct": false
+      },
+      {
+        "text": "a = (1; 2; 3; 4; 5)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Що відбувається під час сортування методом бульбашки за один повний прохід по масиву?",
+    "answers": [
+      {
+        "text": "Найбільший елемент «спливає» у кінець масиву",
+        "correct": true
+      },
+      {
+        "text": "Сусідні елементи порівнюються і міняються місцями, якщо порушено порядок",
+        "correct": true
+      },
+      {
+        "text": "Масив ділиться на відсортовану та невідсортовану частини рівного розміру",
+        "correct": false
+      },
+      {
+        "text": "Відразу весь масив стає відсортованим",
+        "correct": false
+      },
+      {
+        "text": "Мінімальний елемент переміщується на початок",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які з наведених функцій вбудовані в Python і можуть застосовуватись до списків числових значень?",
+    "answers": [
+      {
+        "text": "sum() — обчислює суму елементів",
+        "correct": true
+      },
+      {
+        "text": "min() — знаходить мінімальний елемент",
+        "correct": true
+      },
+      {
+        "text": "max() — знаходить максимальний елемент",
+        "correct": true
+      },
+      {
+        "text": "avg() — обчислює середнє значення",
+        "correct": false
+      },
+      {
+        "text": "median() — знаходить медіану",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "question": "Які твердження про лінійний пошук у масиві є правильними?",
+    "answers": [
+      {
+        "text": "Алгоритм перевіряє елементи масиву по черзі від першого до останнього",
+        "correct": true
+      },
+      {
+        "text": "У найгіршому випадку переглядаються всі елементи масиву",
+        "correct": true
+      },
+      {
+        "text": "Масив обов'язково має бути відсортованим перед виконанням пошуку",
+        "correct": false
+      },
+      {
+        "text": "Складність алгоритму O(n)",
+        "correct": true
+      },
+      {
+        "text": "Лінійний пошук завжди швидший за бінарний",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Який метод Python видаляє елемент зі списку за його індексом і повертає цей елемент?",
+    "answers": [
+      {
+        "text": "pop()",
+        "correct": true
+      },
+      {
+        "text": "pop",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Вкажіть результат виконання виразу len([5, 10, 15, 20, 25]) у Python.",
+    "answers": [
+      {
+        "text": "5",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Як називається алгоритм впорядкування, під час якого на кожному кроці знаходять найменший елемент із невідсортованої частини і ставлять його на потрібне місце?",
+    "answers": [
+      {
+        "text": "Сортування вибором",
+        "correct": true
+      },
+      {
+        "text": "сортування вибором",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "question": "Яку складність у нотації «О велике» має алгоритм бінарного пошуку?",
+    "answers": [
+      {
+        "text": "O(log n)",
+        "correct": true
+      },
+      {
+        "text": "O(log₂n)",
+        "correct": true
+      },
+      {
+        "text": "O(logn)",
+        "correct": true
+      }
+    ]
+  }
+]
